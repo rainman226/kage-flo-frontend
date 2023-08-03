@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Animes from "./pages/Animes";
 import News from "./pages/News";
-import Login from "./pages/Login";
+import Login from "./pages/Login/Login";
 
 import backgroundImage from "./wallpaper.jpg"; // Import the image
 
@@ -18,11 +18,7 @@ function App() {
     >
       <Router>
         <Navbar />
-        <div>
         
-          
-     
-          <div/>
 
           {/* Content */}
           <div >
@@ -32,7 +28,7 @@ function App() {
               <Route path="/animes" element={<Animes />} />
             </Routes>
           </div>
-        </div>
+        
       </Router>
     </div>
   );

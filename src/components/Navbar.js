@@ -9,9 +9,9 @@ const Navbar = () => {
    <div>
     
    <div className='w-90%   bg-black/20 flex justify-between py-3  backdrop-blur-2xl items-center'>
-    <Link to = {"/"} className='ml-20 mb-1 text-2xl font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600'>KageFlo</Link>
-    <div className='mr-40 text-yellow-100'>
-    <p>Log in as an Admin</p>
+    <Link to = {"/"} className='ml-20 mb-1 text-2xl font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-yellow-100 to-pink-500'>KageFlo</Link>
+    <div className='mr-40 text-yellow-100 '>
+    <Link to= "/">Log in as an Admin</Link>
     </div>
    </div>
 
@@ -20,24 +20,24 @@ const Navbar = () => {
         <div className='w-full bg-black/20 h-[80px] backdrop-blur-2xl rounded-full max-w-[400px] mx-auto px-5 flex justify-between items-center text-2xl'>
 
           <Link
-            className={`cursor-pointer w-[40px] h-[40px] flex items-center justify-center hover:bg-blue-300 rounded-full ${
-              location.pathname === '/' ?  'bg-blue-300' : 'hover:bg-opacity-20 rounded-full'}`}
+            className={`cursor-pointer w-[40px] h-[40px] flex items-center justify-center hover:bg-yellow-100 rounded-full ${
+              location.pathname === '/' ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}`}
             to='/'
           >
             <BiNews className='w-6 h-6' />
           </Link>
 
           <Link
-            className={`cursor-pointer w-[40px] h-[40px] flex items-center justify-center hover:bg-blue-300 rounded-full ${
-              location.pathname === '/animes' ?  'bg-blue-300' : 'hover:bg-opacity-20 rounded-full'}`}
+            className={`cursor-pointer w-[40px] h-[40px] flex items-center justify-center hover:bg-yellow-100 rounded-full ${
+              location.pathname === '/animes' ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}`}
             to='/animes'
           >
             <BiSearch className='w-6 h-6' />
           </Link>
 
           <Link
-           className={`cursor-pointer w-[40px] h-[40px] flex items-center justify-center hover:bg-blue-300 rounded-full ${
-              location.pathname === '/login' ?  'bg-blue-300' : 'hover:bg-opacity-20 rounded-full'}`}
+           className={`cursor-pointer w-[40px] h-[40px] flex items-center justify-center hover:bg-yellow-100 rounded-full ${
+              location.pathname === '/login' ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}`}
             to='/login'
           >
             <BiUser className='w-6 h-6' />
