@@ -11,7 +11,10 @@ const Navbar = () => {
    <div className='w-90%   bg-black/20 flex justify-between py-3  backdrop-blur-2xl items-center'>
     <Link to = {"/"} className='ml-20 mb-1 text-2xl font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-yellow-100 to-pink-500/60'>KageFlo</Link>
     <div className='mr-40 text-yellow-100 '>
-    <Link to= "/">Log in as an Admin</Link>
+    <Link to= "/">
+      <button className='bg-white/20 p-2  rounded hover:bg-yellow-500/20'>Log in as an Admin</button>
+      
+      </Link>
     </div>
    </div>
 

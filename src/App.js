@@ -1,9 +1,11 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { TopAnimesProvider } from "./TopAnimesContext";
 import Animes from "./pages/animes/Animes";
 import News from "./pages/News";
 import Login from "./pages/Login/Login";
+import AnimeDetail from "./components/AnimeDetail";
 
 import backgroundImage from "./wallpaper.jpg"; // Import the image
 
@@ -17,18 +19,17 @@ function App() {
       }}
     >
       <Router>
-        <Navbar />
-        
-
-          {/* Content */}
-          <div >
+        <TopAnimesProvider> {/* Wrap your component tree */}
+          <Navbar />
+          <div>
             <Routes>
               <Route path="/" element={<News />} />
               <Route path="/login" element={<Login />} />
               <Route path="/animes" element={<Animes />} />
+              <Route path="/anime/:id" element={<AnimeDetail />} />
             </Routes>
           </div>
-        
+        </TopAnimesProvider>
       </Router>
     </div>
   );

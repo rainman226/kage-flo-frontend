@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import { Link} from 'react-router-dom';
@@ -23,8 +23,21 @@ const slides = [{
 }, 
 ]
 
-  
+  const [animeData, setAnimeData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+ useEffect(() => {
+    // Fetch anime data from the API
+    fetch('https://api.jikan.moe/v4/anime/540/full') // Replace with the actual API URL
+      .then(response => response.json())
+      .then(data => {setAnimeData({data})
+        console.log({data});
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+
+
+
 
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
@@ -47,10 +60,21 @@ const slides = [{
      <Link to = "/"> <div
       
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
+        className='w-full h-full flex flex-col rounded-2xl bg-center bg-cover duration-500'
       >
-       <h1 className='text-white text-2xl p-4 bg-indigo-500/20 w-[100px] self-end '>Heloo</h1>
-       </div></Link>
+       <h1 className='text-white text-2xl p-4 bg-black/20 backdrop-blur-2xl w-[200px] h-full self-end rounded-r-lg'>
+
+        {animeData?.data?.data?.title_english}
+        {animeData?.data?.data?.rank}
+
+        </h1>
+
+        
+
+       </div>
+       
+       
+       </Link>
       {/* Left Arrow */}
       <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
