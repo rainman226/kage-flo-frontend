@@ -5,13 +5,14 @@ import { TopAnimesProvider } from "./TopAnimesContext";
 import Animes from "./pages/animes/Animes";
 import News from "./pages/News";
 import Login from "./pages/Login/Login";
-import AnimeDetail from "./components/AnimeDetail";
+import AnimeDetail from "./pages/animes/AnimeDetail";
 
 import backgroundImage from "./wallpaper.jpg"; // Import the image
 
 function App() {
-  return (
-    <div  style={{
+  return (<div 
+    // className="bg-gradient-to-r from-green-100 to-yellow-900"
+     style={{
         backgroundImage: `url(${backgroundImage})`, // Set the background image
         backgroundSize: "cover", // Cover the entire background
         backgroundPosition: "center",

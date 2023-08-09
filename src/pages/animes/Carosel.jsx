@@ -26,15 +26,15 @@ const slides = [{
   const [animeData, setAnimeData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
- useEffect(() => {
-    // Fetch anime data from the API
-    fetch('https://api.jikan.moe/v4/anime/540/full') // Replace with the actual API URL
-      .then(response => response.json())
-      .then(data => {setAnimeData({data})
-        console.log({data});
-      })
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+//  useEffect(() => {
+//     // Fetch anime data from the API
+//     fetch('https://api.jikan.moe/v4/anime/540/full') // Replace with the actual API URL
+//       .then(response => response.json())
+//       .then(data => {setAnimeData({data})
+//         console.log({data});
+//       })
+//       .catch(error => console.error('Error fetching data:', error));
+//   }, []);
 
 
 
@@ -64,8 +64,8 @@ const slides = [{
       >
        <h1 className='text-white text-2xl p-4 bg-black/20 backdrop-blur-2xl w-[200px] h-full self-end rounded-r-lg'>
 
-        {animeData?.data?.data?.title_english}
-        {animeData?.data?.data?.rank}
+        {/* {animeData?.data?.data?.title_english}
+        {animeData?.data?.data?.rank} */}
 
         </h1>
 

@@ -12,7 +12,7 @@ const Navbar = () => {
     <Link to = {"/"} className='ml-20 mb-1 text-2xl font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-yellow-100 to-pink-500/60'>KageFlo</Link>
     <div className='mr-40 text-yellow-100 '>
     <Link to= "/">
-      <button className='bg-white/20 p-2  rounded hover:bg-yellow-500/20'>Log in as an Admin</button>
+      <button className='bg-white/20  p-2  rounded hover:bg-gradient-to-r from-yellow-500/10 to-yellow-900/10 '>Log in as an Admin</button>
       
       </Link>
     </div>
