@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+
 const TopAnimesContext = createContext();
 
 export const useTopAnimesContext = () => useContext(TopAnimesContext);
@@ -22,7 +23,7 @@ export const TopAnimesProvider = ({ children }) => {
   }, []);
 
   return (
-    <TopAnimesContext.Provider value={{ topAnimesData, selectedAnime, setSelectedAnime }}>
+    <TopAnimesContext.Provider value={{ topAnimesData, selectedAnime, setSelectedAnime}}>
       {children}
     </TopAnimesContext.Provider>
   );

@@ -1,12 +1,13 @@
 import {useEffect,useState} from 'react'
 import Carosel from './Carosel'
 import TopAnimes from './TopAnimes'
+import { useAuth } from '../../AuthContext';
 
 const Animes = () => {
 
    const [topAnimesData, setTopAnimesData] = useState([]);
 
-
+  
 
   return (
     

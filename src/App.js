@@ -1,11 +1,13 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { TopAnimesProvider } from "./TopAnimesContext";
+import {  TopAnimesProvider } from "./TopAnimesContext";
 import Animes from "./pages/animes/Animes";
 import News from "./pages/News";
 import Login from "./pages/Login/Login";
 import AnimeDetail from "./pages/animes/AnimeDetail";
+import SignUp from "./pages/Login/SignUp";
+import Profile from "./components/Profile"
 
 import backgroundImage from "./wallpaper.jpg"; // Import the image
 
@@ -24,10 +26,14 @@ function App() {
           <Navbar />
           <div>
             <Routes>
+              
               <Route path="/" element={<News />} />
               <Route path="/login" element={<Login />} />
               <Route path="/animes" element={<Animes />} />
               <Route path="/anime/:id" element={<AnimeDetail />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/profile" element={<Profile />} />
+
             </Routes>
           </div>
         </TopAnimesProvider>

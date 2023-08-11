@@ -1,25 +1,54 @@
-
+import { useState } from 'react';
 import {yupResolver} from '@hookform/resolvers/yup'
 import {useForm} from "react-hook-form";
+import axios from 'axios';
+import { useAuth } from '../../AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
+import _debounce from 'lodash/debounce';
+
 
 import * as yup from 'yup';
 
 const FormLogin = () => {
+   const navigate = useNavigate();
   
-
-  //Verification
+   const { login, isLoggedIn } = useAuth();
 
   const schema = yup.object().shape({
    fullName: yup.string().required("Your Username is required!"),
    
    password: yup.string().min(4).max(20).required("A Password is needed at least 4 cahracters"),
-   
-
-
-
   });
 
 
+   const [userData, setUserData] = useState(null);
+
+   
+
+   
+
+
+   const fetchUserData = async (username) => {
+    try {
+      // Make an API request to fetch user data based on the provided username
+      const response = await axios.get(`http://localhost:8080/user?username=${username}`);
+
+      if (response.data) {
+        console.log(response.data);
+        setUserData(response.data); // Store the retrieved user data
+      } else {
+        setUserData(null); // Reset user data if not found
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+      setUserData(null); // Reset user data on error
+    }
+  };
+
+
+
+
+  const debouncedFetchUserData = _debounce(fetchUserData, 200);
 
 const {register, handleSubmit, formState:{errors} } = useForm(
   {
@@ -28,9 +57,35 @@ const {register, handleSubmit, formState:{errors} } = useForm(
 );
 
 
-  const onSubmit = (data) => {
-   console.log(data);
+  const onSubmit =  (data) => {
+  try {
+
+    // Call fetchUserData and wait for it to complete
+    // await fetchUserData(userData[0].username);
+
+    if (userData) {
+      const user = userData[0];
+      console.log(user);
+      
+      // Compare the entered password with the stored password
+      if (data.password === user.password) {
+        console.log('Login successful');
+        login();
+        console.log(isLoggedIn);
+        navigate("/profile");
+      } else {
+        console.log('Login failed');
+        // Handle failed login attempt, show an error message to the user.
+      }
+    } else {
+      console.log('User not found');
+      // Handle user not found, show an error message to the user.
+    }
+  } catch (error) {
+    console.error('Error during login:', error);
+    // Handle error, show an error message to the user.
   }
+};
 
 
 
@@ -54,20 +109,20 @@ hover:-translate-y-1 hover:scale-110 hover:bg-indigo-900/10 duration-300
 
      <p className='text-white mb-1'>Username or Email</p>
 
-    <input className='mb-3 p-1 w-full bg-yellow-500/20 text-white' type='text' placeholder='UserName' {...register("fullName")} />
+    <input className='mb-3 p-1 w-full bg-yellow-500/20 text-white' type='text' placeholder='UserName' {...register("fullName")} onChange={(e) => debouncedFetchUserData(e.target.value)}/>
 
     <p className="text-red-500">{errors.fullName?.message}</p>
 
    
 <p className='text-white mb-1'>Password</p>
 
-    <input className="bg-yellow-500/20 text-white p-1 disabled:opacity-75" type='password' placeholder='Password...' {...register("password")} />
+    <input className="bg-yellow-500/20 text-white p-1 disabled:opacity-75" type='password' placeholder='Password...' {...register("password")}  />
 
     <p className='text-red-500'>{errors.password?.message}</p>
 
-   
+    <Link to = "/signup" className='mt-2  text-yellow-100 hover:text-white'>Don't have an account, Sign Up</Link>
 
-    <input className=" rounded mt-6 bg-yellow-100 hover:bg-white cursor-pointer" type='submit' />
+    <input className=" rounded mt-4 bg-yellow-100 hover:bg-white cursor-pointer" type='submit' />
 
     </form>
     

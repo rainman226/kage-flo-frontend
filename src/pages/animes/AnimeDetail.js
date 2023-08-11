@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTopAnimesContext } from '../../TopAnimesContext';
+import {HiSave } from 'react-icons/hi';
 
 const AnimeDetail = () => {
   const { selectedAnime } = useTopAnimesContext();
@@ -21,6 +22,11 @@ const AnimeDetail = () => {
           <p>{selectedAnime.synopsis}</p>
            <p>{selectedAnime.status}</p>
            <p>{selectedAnime.mal_id}</p>
+           
+
+           <button>
+            <HiSave className='w-[50px] h-[50px] text-black'/>
+           </button>
            </div>
             
         </div>
