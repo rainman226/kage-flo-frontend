@@ -5,12 +5,15 @@ import axios from 'axios';
 import { useAuth } from '../../AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import _debounce from 'lodash/debounce';
+import { useUser } from '../../UserContext';
 
 
 import * as yup from 'yup';
 
 const FormLogin = () => {
    const navigate = useNavigate();
+
+   const { setprofileData } = useUser();
   
    const { login, isLoggedIn } = useAuth();
 
@@ -71,6 +74,7 @@ const {register, handleSubmit, formState:{errors} } = useForm(
       if (data.password === user.password) {
         console.log('Login successful');
         login();
+        setprofileData(user);
         console.log(isLoggedIn);
         navigate("/profile");
       } else {

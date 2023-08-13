@@ -2,10 +2,25 @@ import {useEffect,useState} from 'react'
 import Carosel from './Carosel'
 import TopAnimes from './TopAnimes'
 import { useAuth } from '../../AuthContext';
+import axios from 'axios';
 
 const Animes = () => {
 
    const [topAnimesData, setTopAnimesData] = useState([]);
+
+
+   useEffect(() => {
+  const apiUrl = 'http://localhost:8080/anime/getAnime?page=1';
+
+  axios.get(apiUrl)
+    .then(response => {
+      console.log('Fetched data:', response.data);
+     
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+}, []);
 
   
 
@@ -17,7 +32,7 @@ const Animes = () => {
     <div className='flex flex-col w-[800px]'>
 
 
-    
+    {/* Here i want to have the searchbar */}
    <h1 className='text-2xl   self-center'>Newst Animes</h1>
    <Carosel />
    <h1 className='text-2xl   self-center  h-auto'>All Animes</h1>
@@ -25,7 +40,7 @@ const Animes = () => {
 </div>
 
 <div className=' flex align-center text-center  flex-1 '>
-<TopAnimes topAnimes={topAnimesData} />
+<TopAnimes  />
 </div>
 
   </div>
