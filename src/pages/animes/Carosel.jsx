@@ -1,11 +1,24 @@
 import { useState, useEffect  } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
-import { Link} from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
+import { useAnime } from '../../AnimeContext'; // Import the useAnime hook
 
-function Carosel() {
+function Carosel(props) {
+  const { selectedAnime,setSelectedAnime } = useAnime(); // Access the setAnime function from the context
+   console.log(props.topAnimesData)
 
+   const navigate = useNavigate();
 
+  const handleAnimeClick = (selectedAnime) => {
+    // Set the selected anime in the context
+    setSelectedAnime(selectedAnime);
+    console.log(selectedAnime)
+
+    // navigate(`/anime/${selectedAnime.id}`);
+
+  };
+   
 const slides = [{
  url: 'https://imgs.search.brave.com/ovEirF7l3IdsBcScJFpwL_hEo58F2fprpdXZr9Z4viE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9m/YXNoaW9uLWxpdHRs/ZS1ib3lfNzE3Njct/OTUuanBnP3NpemU9/NjI2JmV4dD1qcGc'
 },
@@ -56,31 +69,47 @@ const slides = [{
   };
 
   return (
-    <div className=' h-[300px] w-[600px] m-auto py-6 px-4 relative group'>
-     <Link to = "/"> <div
-      
-        style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className='w-full h-full flex flex-col rounded-2xl bg-center bg-cover duration-500'
-      >
-       <h1 className='text-white text-2xl p-4 bg-black/20 backdrop-blur-2xl w-[200px] h-full self-end rounded-r-lg'>
+    <div className=' h-full w-full m-auto py-6 px-4 relative group flex flex-col'>
+     
+<div className='w-auto h-auto flex flex-wrap justify-center  '>
+      {props.topAnimesData.map((anime, index) => (
+        <Link 
+         to={`/anime`}
+         key={index}  onClick={() => handleAnimeClick(anime)}>
+          
+          <div
+              className='h-[200px] w-[120px] mx-4 mb-20 ml-3'
+          >
+            
+             <img
+                src={anime.thumbnail}
+                alt={anime.title}
+                className='w-full h-full object-cover rounded hover:scale-110 '
+              />
+              <h1 
+            // className='text-white text-2xl p-4 bg-black/20 backdrop-blur-2xl w-[270px] h-full self-end rounded-r-lg'
+            className='text-yellow-100 align-middle mt-2'
+            >
+              {anime.title}
+            </h1>
 
-        {/* {animeData?.data?.data?.title_english}
-        {animeData?.data?.data?.rank} */}
+          </div>
+          
+        </Link>
+      ))}
+ </div>
 
-        </h1>
 
-        
 
-       </div>
-       
-       
-       </Link>
+
+
+
       {/* Left Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-1 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
       </div>
       {/* Right Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-1 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
         <BsChevronCompactRight onClick={nextSlide} size={30} />
       </div>
       <div className='flex top-4 justify-center py-2'>

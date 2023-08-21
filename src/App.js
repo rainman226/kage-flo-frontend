@@ -9,10 +9,11 @@ import AnimeDetail from "./pages/animes/AnimeDetail";
 import SignUp from "./pages/Login/SignUp";
 import Profile from "./components/Profile"
 
-import backgroundImage from "./wallpaper.jpg"; // Import the image
+import backgroundImage from "./mingwei-lim-Xj69EGAgs2s-unsplash.jpg"; // Import the image
+import AnimeDetailPage from "./pages/animes/AnimeDetailPage";
 
 function App() {
-  return (<div 
+  return (<div className="bg-gradient-to-r from-indigo-600 to-indigo-800" //
     // className="bg-gradient-to-r from-green-100 to-yellow-900"
      style={{
         backgroundImage: `url(${backgroundImage})`, // Set the background image
@@ -33,6 +34,8 @@ function App() {
               <Route path="/anime/:id" element={<AnimeDetail />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/profile" element={<Profile />} />
+             <Route path="/anime" element={<AnimeDetailPage />} />
+
 
             </Routes>
           </div>
