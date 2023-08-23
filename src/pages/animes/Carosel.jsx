@@ -10,6 +10,8 @@ function Carosel(props) {
 
    const navigate = useNavigate();
 
+  
+
   const handleAnimeClick = (selectedAnime) => {
     // Set the selected anime in the context
     setSelectedAnime(selectedAnime);
@@ -19,62 +21,64 @@ function Carosel(props) {
 
   };
    
-const slides = [{
- url: 'https://imgs.search.brave.com/ovEirF7l3IdsBcScJFpwL_hEo58F2fprpdXZr9Z4viE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9m/YXNoaW9uLWxpdHRs/ZS1ib3lfNzE3Njct/OTUuanBnP3NpemU9/NjI2JmV4dD1qcGc'
-},
- {
- url: 'https://imgs.search.brave.com/Lxd9N9-MThe093D3EIYgzTaMS4HRsKPGPWK4icuv30E/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE1/NDE1NjIyMzI1Nzkt/NTEyYTIxMzYwMDIw/P2l4bGliPXJiLTQu/MC4zJml4aWQ9TTN3/eE1qQTNmREI4TUh4/elpXRnlZMmg4TVRC/OGZHRnVhVzFsZkdW/dWZEQjhmREI4Zkh3/dyZ3PTEwMDAmcT04/MA'
-},
- {
- url: 'https://imgs.search.brave.com/wYQ8LtyFsc4ur3HfGc_gWhhX2XKd3IKv6spWX-q4puU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9u/YXR1cmUtbXlzdGVy/eS1wb3J0cmF5ZWQt/dHJhbnF1aWwtZm9y/ZXN0LXNjZW5lLWdl/bmVyYXRpdmUtYWlf/MTg4NTQ0LTk3NTUu/anBnP3NpemU9NjI2/JmV4dD1qcGc'
-},
- {
- url: 'https://imgs.search.brave.com/S4JhAMhnQ49slATmA1VX3FDR4mNouMYhvk1h3MluO8w/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxNy8w/NC8yNC8wOS8yNS9o/b3JzZS0yMjU1ODc2/XzY0MC5qcGc'
-},
- {
- url: 'https://imgs.search.brave.com/LE1loCRQeEyDkCCWIS_JJu_sIgHkvw-yjYCo-bPyXgs/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by93/b21hbi13aXRoLWJs/dWUtaGFpci1ibHVl/LWhhaXItc3RhbmRz/LWZyb250LWNvbG9y/ZnVsLWJhY2tncm91/bmRfMTM0MC0zOTA4/Ny5qcGc_c2l6ZT02/MjYmZXh0PWpwZw'
-}, 
-]
+
 
   const [animeData, setAnimeData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-//  useEffect(() => {
-//     // Fetch anime data from the API
-//     fetch('https://api.jikan.moe/v4/anime/540/full') // Replace with the actual API URL
-//       .then(response => response.json())
-//       .then(data => {setAnimeData({data})
-//         console.log({data});
-//       })
-//       .catch(error => console.error('Error fetching data:', error));
-//   }, []);
+ useEffect(() => {
+    // Fetch anime data from the API
+    fetch('https://api.jikan.moe/v4/anime/540/full') // Replace with the actual API URL
+      .then(response => response.json())
+      .then(data => {setAnimeData({data})
+        // console.log({data});
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
+
+    
 
 
 
   const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+   if (props.currentPage > 1) {
+      props.setCurrentPage(props.currentPage - 1);
+    }
+    console.log("Current Page:", props.currentPage);
   };
 
   const nextSlide = () => {
-    const isLastSlide = currentIndex === slides.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    if (props.currentPage < 3) {
+      props.setCurrentPage(props.currentPage + 1);
+    }
+    console.log("Current Page:", props.currentPage);
   };
 
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
   };
 
+
+ // Filter the anime data based on the search query
+  const filteredAnimes = props.searchQuery
+    ? props.searchAnimesData.filter(anime => {
+        const title = anime.title.toLowerCase();
+        const query = props.searchQuery.toLowerCase();
+        return title.includes(query);
+      })
+    : props.topAnimesData; // If no search query, display all animes
+
+
+
+
   return (
-    <div className=' h-full w-full m-auto py-6 px-4 relative group flex flex-col'>
+    <div className=' h-full w-full m-auto py-6 px-4 relative group flex flex-col transition-transform duration-300 ease-in-out'>
      
 <div className='w-auto h-auto flex flex-wrap justify-center  '>
-      {props.topAnimesData.map((anime, index) => (
+      {filteredAnimes.map((anime, index) => (
         <Link 
-         to={`/anime`}
+         to={`/anime/${anime.title.replace(/\s+/g, '-')}`}
          key={index}  onClick={() => handleAnimeClick(anime)}>
           
           <div
@@ -84,11 +88,11 @@ const slides = [{
              <img
                 src={anime.thumbnail}
                 alt={anime.title}
-                className='w-full h-full object-cover rounded hover:scale-110 '
+                className='w-full h-full object-cover rounded hover:scale-110 transition-transform duration-300'
               />
               <h1 
             // className='text-white text-2xl p-4 bg-black/20 backdrop-blur-2xl w-[270px] h-full self-end rounded-r-lg'
-            className='text-yellow-100 align-middle mt-2'
+            className='text-yellow-100 align-middle mt-2 transition-opacity duration-300 hover:opacity-75'
             >
               {anime.title}
             </h1>
@@ -105,14 +109,14 @@ const slides = [{
 
 
       {/* Left Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-1 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-1 text-2xl rounded-full  p-2 bg-black/20 text-white cursor-pointer hover:text-indigo-500 transform hover:scale-125 transition-transform duration-300'>
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
       </div>
       {/* Right Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-1 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-1 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hover:text-indigo-500 transform hover:scale-125 transition-transform duration-300'>
         <BsChevronCompactRight onClick={nextSlide} size={30} />
       </div>
-      <div className='flex top-4 justify-center py-2'>
+      {/* <div className='flex top-4 justify-center py-2 mt-10' >
         {slides.map((slide, slideIndex) => (
           <div
             key={slideIndex}
@@ -121,8 +125,8 @@ const slides = [{
           >
             <RxDotFilled className='text-yellow-100 '/>
           </div>
-        ))}
-      </div>
+        ))} 
+      </div> */}
     </div>
              )
   }

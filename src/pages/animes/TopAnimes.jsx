@@ -15,11 +15,11 @@ const TopAnimes = () => {
       <ul className='flex flex-col justify-start align-middle'>
         {topAnimesData.slice(1, 4).map(anime => (
           <li key={anime.mal_id}>
-            <Link to={`/anime/${anime.mal_id}`}>
+            <Link to={`/anim/${anime.mal_id}`}>
               <img
                 src={anime.images.jpg.image_url}
                 alt={anime.title}
-                className='w-[160px] h-auto border-x-0 mt-4 mx-12 mb-2 hover:scale-110'
+                className='w-[160px] h-auto border-x-0 mt-4 mx-12 mb-2 hover:scale-110 transition-transform duration-300'
                 onClick={() => handleAnimeClick(anime)} // Handle anime click
               />
               <h1>{anime.title}</h1>

@@ -13,7 +13,7 @@ import backgroundImage from "./mingwei-lim-Xj69EGAgs2s-unsplash.jpg"; // Import 
 import AnimeDetailPage from "./pages/animes/AnimeDetailPage";
 
 function App() {
-  return (<div className="bg-gradient-to-r from-indigo-600 to-indigo-800" //
+  return (<div className="bg-gradient-to-r from-black to-black" //
     // className="bg-gradient-to-r from-green-100 to-yellow-900"
      style={{
         backgroundImage: `url(${backgroundImage})`, // Set the background image
@@ -31,10 +31,10 @@ function App() {
               <Route path="/" element={<News />} />
               <Route path="/login" element={<Login />} />
               <Route path="/animes" element={<Animes />} />
-              <Route path="/anime/:id" element={<AnimeDetail />} />
+              <Route path="/anim/:id" element={<AnimeDetail />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/profile" element={<Profile />} />
-             <Route path="/anime" element={<AnimeDetailPage />} />
+             <Route path="/anime/:title" element={<AnimeDetailPage />} />
 
 
             </Routes>
