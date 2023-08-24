@@ -32,7 +32,7 @@ const AnimeDetailPage = () => {
              <h1 className=' text-yellow-100 my-3'>Starte-Date: {selectedAnime.startDate}</h1>
              <h1 className=' text-yellow-100 my-3'>End-Date: {selectedAnime.endDate}</h1>
              <h1 className=' text-yellow-100 my-3'>Source: {selectedAnime.source}</h1>
-            <h1 className=' text-yellow-100 my-3'>Episodes: {selectedAnime.episodes}</h1>
+            <h1 className=' text-yellow-100 my-3'>Episodes: {selectedAnime.episodes ? selectedAnime.episodes: "Ongoing" }</h1>
             <div className='w-full mt-4 flex mb-10' >
         
       </div>
