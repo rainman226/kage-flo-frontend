@@ -57,43 +57,53 @@ const AddAnime = (props) => {
     }
   };
 
+
+const handleDoneClick = async () => {
+  await updateAnimeEntry(); // Wait for state updates to complete
+  // Now you can perform any additional actions after the update
+};
+
+
   const saveAnime = async () => {
-    // Your API endpoint to save anime
-    const url = 'http://localhost:8080/entry/save';
+  // Your API endpoint to save anime
+  const url = 'http://localhost:8080/entry/save';
 
-    const requestBody = {
-      userID: {
-        id: profileData.id,
-      },
-      animeID: {
-        id: props.selectedAnime.id,
-        title: props.selectedAnime.title,
-        thumbnail: props.selectedAnime.thumbnail,
-      },
-      status: 'WATCHING',
-      watchedEpisodes: 0,
-      grade: null,
-    };
-
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      });
-
-      if (response.ok) {
-        setIsAnimeSaved(true);
-        console.log('Anime saved successfully.');
-      } else {
-        console.error('Failed to save anime.');
-      }
-    } catch (error) {
-      console.error('An error occurred:', error);
-    }
+  const requestBody = {
+    userID: {
+      id: profileData.id,
+    },
+    animeID: {
+      id: props.selectedAnime.id,
+      title: props.selectedAnime.title,
+      thumbnail: props.selectedAnime.thumbnail,
+    },
+    status: 'WATCHING',
+    watchedEpisodes: 0,
+    grade: null,
   };
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      setAnimeEntryId(data.id); // Assuming the response contains the ID
+      console.log(data.id)
+      setIsAnimeSaved(true);
+      console.log('Anime saved successfully.');
+    } else {
+      console.error('Failed to save anime.');
+    }
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+};
 
   const updateAnimeEntry = async () => {
     if (!animeEntryId) {
@@ -140,7 +150,7 @@ const AddAnime = (props) => {
         
           <button
             onClick={isAnimeSaved ? null : saveAnime}
-            className="bg-yellow-500/20 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded"
+            className="bg-indigo-500/20 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded"
           >
             {isAnimeSaved ? 'Anime Saved' : 'Save Anime'}
           </button>
@@ -192,7 +202,7 @@ const AddAnime = (props) => {
               />
               <h1 className="text-xl">Please use dot notation ex: 6.5</h1>
               <button
-                onClick={updateAnimeEntry}
+                onClick={handleDoneClick}
                 className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded w-full mt-2"
               >
                Done

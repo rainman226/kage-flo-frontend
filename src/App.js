@@ -9,7 +9,7 @@ import AnimeDetail from "./pages/animes/AnimeDetail";
 import SignUp from "./pages/Login/SignUp";
 import Profile from "./components/Profile"
 
-import backgroundImage from "./mingwei-lim-Xj69EGAgs2s-unsplash.jpg"; // Import the image
+import backgroundImage from "./wallpaper.jpg"; // Import the image
 import AnimeDetailPage from "./pages/animes/AnimeDetailPage";
 
 function App() {

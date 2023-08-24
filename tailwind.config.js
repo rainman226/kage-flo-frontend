@@ -11,9 +11,14 @@ module.exports = {
       },
 
       colors: {
-        'custom-yellow': '#2B3664',
         
+        'custom-yellow': '#2B3664',
+        'ANIME-WATCHING': '#00ff00',     // Uppercase class for "WATCHING"
+        'ANIME-COMPLETED': '#ff0000',    // Uppercase class for "COMPLETED"
+        'ANIME-ON-HOLD': '#0000ff',     // Uppercase class for "ON HOLD"
+        // Add more uppercase background colors for other statuses as need
       },
+      
     },
   },
   plugins: [],

@@ -1,0 +1,20 @@
+/* CSS file for your component */
+
+/* Define CSS classes for each status */
+.WATCHING {
+   background: linear-gradient(135deg, #8cd192b9, #fbc2eb, #fbc2eb, #a6c1ee, #fbc2eb, #a18cd1); /* Green background for "WATCHING" */
+}
+
+.DROPPED {
+ background: linear-gradient(135deg, #ff3333, #754040, #ff3333); /* Red background for "COMPLETED" */
+}
+
+.ONHOLD {
+  background: linear-gradient(135deg, #67b26f, #4ca2cd, #67b26f, #67b26f, #4ca2cd, #67b26f); /* Blue background for "ONHOLD" */
+}
+.COMPLETED {
+   background: linear-gradient(135deg, #ffc107, #ff9800, #ffc107);
+}
+
+
+/* Add more classes for other statuses as needed */
