@@ -29,12 +29,13 @@ function App() {
             <Routes>
               
               <Route path="/" element={<News />} />
+              <Route path="/anime/:title" element={<AnimeDetailPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/animes" element={<Animes />} />
-              <Route path="/anim/:id" element={<AnimeDetail />} />
+              {/* <Route path="/anim/:id" element={<AnimeDetail />} /> */}
               <Route path="/signup" element={<SignUp />} />
               <Route path="/profile" element={<Profile />} />
-             <Route path="/anime/:title" element={<AnimeDetailPage />} />
+             
 
 
             </Routes>

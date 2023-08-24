@@ -87,7 +87,7 @@ const Navbar = () => {
           <Link
             className={`cursor-pointer w-[40px] h-[40px] flex items-center justify-center hover:bg-yellow-100 hover:scale-110 rounded-full ${
               location.pathname === '/animes' ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'} 
-              ${location.pathname === '/anime'  ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}
+              ${location.pathname === '/anime/:title'  ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}
               `}
             to='/animes'
           >

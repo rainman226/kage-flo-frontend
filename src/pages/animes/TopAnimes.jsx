@@ -15,7 +15,9 @@ const TopAnimes = () => {
       <ul className='flex flex-col justify-start align-middle'>
         {topAnimesData.slice(1, 4).map(anime => (
           <li key={anime.mal_id}>
-            <Link to={`/anim/${anime.mal_id}`}>
+            <Link 
+            to={`/anim/${anime.mal_id}`}
+            >
               <img
                 src={anime.images.jpg.image_url}
                 alt={anime.title}

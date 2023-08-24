@@ -1,9 +1,11 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState ,useEffect} from 'react';
 
 const AnimeContext = createContext();
 
 export function AnimeProvider({ children }) {
   const [selectedAnime, setSelectedAnime] = useState(null);
+
+ 
 
   return (
     <AnimeContext.Provider value={{ selectedAnime, setSelectedAnime }}>

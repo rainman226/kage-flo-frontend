@@ -31,7 +31,7 @@ const AnimeDetail = () => {
             
         </div>
       ) : (
-        <p>No anime selected</p>
+        <p>JAJAJAJ</p>
       )}
     </div>
     </div>

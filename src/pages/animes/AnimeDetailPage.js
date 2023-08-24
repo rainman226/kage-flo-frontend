@@ -1,12 +1,14 @@
 import React from 'react';
 import { useAnime } from '../../AnimeContext'; // Import the useAnime hook
+import AddAnime from "./AddAnime"
+
 
 const AnimeDetailPage = () => {
   const { selectedAnime } = useAnime();
 
   // Check if a selected anime is available
   if (!selectedAnime) {
-    return <div>No anime selected</div>;
+    return <div>No Anime selected</div>;
   }
 
   // Render the details of the selected anime
@@ -22,22 +24,23 @@ const AnimeDetailPage = () => {
                 alt={selectedAnime.title}
                 className='w-[350px] h-[530px]  rounded '
               />
-     <div className=' flex flex-col align-middle ml-20 w-[400px] text-3xl'>
-             <h1 className=' text-yellow-100 my-2 '>Title: {selectedAnime.title}</h1>
-             <h1 className=' text-yellow-100 my-2'>Type: {selectedAnime.type}</h1>
-             <h1 className=' text-yellow-100 my-2'>Studio: {selectedAnime.studio}</h1>
-             <h1 className=' text-yellow-100 my-2'>Status: {selectedAnime.status}</h1>
-             <h1 className=' text-yellow-100 my-2'>Starte-Date: {selectedAnime.startDate}</h1>
-             <h1 className=' text-yellow-100 my-2'>End-Date: {selectedAnime.endDate}</h1>
-             <h1 className=' text-yellow-100 my-2'>Source: {selectedAnime.source}</h1>
-            <h1 className=' text-yellow-100 my-2'>Episodes: {selectedAnime.episodes}</h1>
+     <div className=' flex flex-col align-middle ml-20 w-full text-3xl'>
+             <h1 className=' text-yellow-100 my-3 '>Title: {selectedAnime.title}</h1>
+             <h1 className=' text-yellow-100 my-3'>Type: {selectedAnime.type}</h1>
+             <h1 className=' text-yellow-100 my-3'>Studio: {selectedAnime.studio}</h1>
+             <h1 className=' text-yellow-100 my-3'>Status: {selectedAnime.status}</h1>
+             <h1 className=' text-yellow-100 my-3'>Starte-Date: {selectedAnime.startDate}</h1>
+             <h1 className=' text-yellow-100 my-3'>End-Date: {selectedAnime.endDate}</h1>
+             <h1 className=' text-yellow-100 my-3'>Source: {selectedAnime.source}</h1>
+            <h1 className=' text-yellow-100 my-3'>Episodes: {selectedAnime.episodes}</h1>
             <div className='w-full mt-4 flex mb-10' >
-        <button className='  rounded bg-yellow-100/10  px-2 '>Save</button>
-        <button className='  rounded bg-yellow-100/10  px-2 '>Watch Later</button>
-        <button className='  rounded bg-yellow-100/10  px-2 ' >Watching</button>
-      </div>
+        
       </div>
       
+      </div>
+      <div className='w-[400px] text-center text-2xl'>
+      <AddAnime selectedAnime={selectedAnime}/>
+      </div>
               </div>
               <div className='mt-20'>
               <h1 className='text-4xl my-4 bg-yellow-100/20 text-center pb-2'>Sypnosis</h1>

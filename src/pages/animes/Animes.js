@@ -17,7 +17,7 @@ const Animes = () => {
   axios.get(apiUrl)
     .then(response => {
       console.log('Fetched data:', response.data);
-     setTopAnimesData(response.data);
+     setTopAnimesData(response.data);//here we save the animes from the page
     })
     .catch(error => {
       console.error('Error fetching data:', error);
@@ -27,7 +27,7 @@ const Animes = () => {
     const apiUrl2 = 'http://localhost:8080/anime/all';
      axios.get(apiUrl2)
     .then(response => {
-      console.log('Fetched data:', response.data);
+      // console.log('Fetched data:', response.data);
      setSearcTopAnimesData(response.data);
     })
     .catch(error => {
