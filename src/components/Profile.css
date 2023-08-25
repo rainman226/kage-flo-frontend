@@ -15,6 +15,10 @@
 .COMPLETED {
    background: linear-gradient(135deg, #ffc107, #ff9800, #ffc107);
 }
+.PTW{
+background: linear-gradient(to bottom, #0074e4, #00a0ff);
+
+}
 
 
 /* Add more classes for other statuses as needed */

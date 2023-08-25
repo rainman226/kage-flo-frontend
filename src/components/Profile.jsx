@@ -41,7 +41,7 @@ const Profile = () => {
     <div className='text-black '>
    {Array.isArray(userData) ? (
   userData.map((item) => (
-    <div className={`flex h-[80px] w-full mb-20 rounded-md justify-center align-middle ${item.status}`} key={item.id}>
+    <div className={`flex h-[80px] w-full mb-10 rounded-md justify-center align-middle ${item.status}`} key={item.id}>
       <div className='flex-1 text-center self-center'>
       <Link 
       // to={`/anime/${item.animeID.title.replace(/\s+/g, '-')}`}
@@ -54,7 +54,7 @@ const Profile = () => {
       {/* Add more properties as needed */}
       <div className='flex-1 text-center'>
         <h1 className='mb-3 mt-2'>Status</h1>
-      <h1 >{item.status}</h1>
+      <h1 >{item.status === "PTW" ?  "PLAN TO WATCH" : item.status}</h1>
       </div>           
       <div className='flex-1 text-center'>
         <h1 className='mb-3 mt-2'>Episodes Watched</h1>

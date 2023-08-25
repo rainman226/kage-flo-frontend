@@ -178,7 +178,7 @@ const handleDoneClick = async () => {
                   className="bg-indigo-500 rounded-md"
                   value="PTW"
                 >
-                  PTW
+                  PLAN TO WATCH
                 </option>
               </select>
               <h1 className="text-3xl">Watched Episodes</h1>

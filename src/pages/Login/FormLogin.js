@@ -20,7 +20,7 @@ const FormLogin = () => {
   const schema = yup.object().shape({
    fullName: yup.string().required("Your Username is required!"),
    
-   password: yup.string().min(4).max(20).required("A Password is needed at least 4 cahracters"),
+   password: yup.string().min(4).max(100).required("A Password is needed at least 4 cahracters"),
   });
 
 

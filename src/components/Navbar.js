@@ -3,10 +3,14 @@ import { Link, useLocation,useNavigate } from 'react-router-dom';
 import { BiNews, BiUser, BiSearch,BiAngry } from 'react-icons/bi';
 import { useAuth } from '../AuthContext';
 import { useState } from 'react';
+import { useUser } from '../UserContext';
 
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const {profileData} = useUser();
+  console.log("this is the userData", profileData);
 
   const [bottomNavbarVisible, setBottomNavbarVisible] = useState(true);
 
@@ -29,7 +33,7 @@ const Navbar = () => {
    <div>
     
    <div className='w-90%   bg-custom-yellow/80 flex justify-between py-3  backdrop-blur-3xl items-center'>
-    <div className='flex w-[250px] justify-between'>
+    <div className='flex w-[450px] justify-between'>
     <Link to = {"/"} className='ml-20 mb-1 text-2xl font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-yellow-100 to-pink-500/60'>KageFlo</Link>
 
     <div > {/* Add margin to create space for the bottom navbar */}
@@ -40,6 +44,14 @@ const Navbar = () => {
           <BiAngry />
         </button>
       </div>
+   {profileData.admin&&isLoggedIn && 
+   <div className='mt-2'>
+       <Link to={"/addEntry"} className=' bg-white/20 p-3 rounded hover:bg-gradient-to-r  from-yellow-500/10 to-yellow-900/10 text-yellow-100'>Add anime entry</Link>
+   </div>}
+
+
+
+
       </div>
 
 
@@ -101,6 +113,7 @@ const Navbar = () => {
            ${location.pathname === '/signup'  ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}  
           ${location.pathname === '/profile'  ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'} 
           ${location.pathname === '/login'  ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}
+          ${location.pathname === '/addEntry'  ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}
               `}
             to={isLoggedIn ? '/profile' : '/signup'}
           >

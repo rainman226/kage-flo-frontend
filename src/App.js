@@ -11,6 +11,7 @@ import Profile from "./components/Profile"
 
 import backgroundImage from "./wallpaper.jpg"; // Import the image
 import AnimeDetailPage from "./pages/animes/AnimeDetailPage";
+import AnimeEntry from "./pages/animes/AnimeEntry";
 
 function App() {
   return (<div className="bg-gradient-to-r from-black to-black" //
@@ -35,6 +36,8 @@ function App() {
               {/* <Route path="/anim/:id" element={<AnimeDetail />} /> */}
               <Route path="/signup" element={<SignUp />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/addEntry" element={<AnimeEntry />} />
+              
              
 
 
