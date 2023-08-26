@@ -28,7 +28,6 @@ const Navbar = () => {
   };
 
 
-
   return (
    <div>
     
@@ -44,7 +43,7 @@ const Navbar = () => {
           <BiAngry />
         </button>
       </div>
-   {profileData.admin&&isLoggedIn && 
+   {isLoggedIn && profileData.admin && 
    <div className='mt-2'>
        <Link to={"/addEntry"} className=' bg-white/20 p-3 rounded hover:bg-gradient-to-r  from-yellow-500/10 to-yellow-900/10 text-yellow-100'>Add anime entry</Link>
    </div>}

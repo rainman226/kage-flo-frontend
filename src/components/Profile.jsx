@@ -44,7 +44,7 @@ const Profile = () => {
     <div className={`flex h-[80px] w-full mb-10 rounded-md justify-center align-middle ${item.status}`} key={item.id}>
       <div className='flex-1 text-center self-center'>
       <Link 
-      // to={`/anime/${item.animeID.title.replace(/\s+/g, '-')}`}
+      to={`/anime/${item.animeID.title.replace(/\s+/g, '-')}`}
          
       className='max-w-[450px] '>{item.animeID.title}</Link>
       </div>

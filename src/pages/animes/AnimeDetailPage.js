@@ -1,12 +1,38 @@
 import React from 'react';
 import { useAnime } from '../../AnimeContext'; // Import the useAnime hook
 import AddAnime from "./AddAnime"
-
+import { useParams } from 'react-router';
 
 const AnimeDetailPage = () => {
   const { selectedAnime } = useAnime();
+  // const [anime, setAnime] = useState(null);
+  // const [loading, setLoading] = useState(false);
+  
+  // const {title} = useParams();
+
+  // useEffect(() => {
+  //   // Fetch anime data from the API
+  //   const animeResource = `http://localhost:8080/anime/${title}`;
+  //   setLoading(true);
+  //   fetch(animeResource) // Replace with the actual API URL
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setAnime(data)
+  //       // console.log({data});
+  //     })
+  //     .catch(error => console.error('Error fetching data:', error))
+  //     .finally(() => {
+  //       setLoading(false);
+  //     });
+  // }, [title])
 
   // Check if a selected anime is available
+  // if(!loading){
+  //   return <div>Loading ...</div>
+  // }
+  // if(!anime){
+  //   return <div>No anime found</div>;
+  // }
   if (!selectedAnime) {
     return <div>No Anime selected</div>;
   }
