@@ -32,12 +32,12 @@ const Navbar = () => {
    <div>
     
    <div className='w-90%   bg-custom-yellow/80 flex justify-between py-3  backdrop-blur-3xl items-center'>
-    <div className='flex w-[450px] justify-between'>
+    <div className='flex w-[600px] justify-between'>
     <Link to = {"/"} className='ml-20 mb-1 text-2xl font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-yellow-100 to-pink-500/60'>KageFlo</Link>
 
     <div > {/* Add margin to create space for the bottom navbar */}
         <button
-          className=' bg-white/20 p-2 rounded hover:bg-gradient-to-r from-yellow-500/10 to-yellow-900/10 text-yellow-100'
+          className=' bg-white/20 p-2 rounded hover:bg-gradient-to-r from-yellow-500/10 to-yellow-900/10 text-yellow-100 fixed'
           onClick={toggleBottomNavbar}
         >
           <BiAngry />
@@ -46,6 +46,12 @@ const Navbar = () => {
    {isLoggedIn && profileData.admin && 
    <div className='mt-2'>
        <Link to={"/addEntry"} className=' bg-white/20 p-3 rounded hover:bg-gradient-to-r  from-yellow-500/10 to-yellow-900/10 text-yellow-100'>Add anime entry</Link>
+   </div>}
+
+
+   {isLoggedIn && profileData.admin && 
+   <div className='mt-2'>
+       <Link to={"/addNews"} className=' bg-white/20 p-3 rounded hover:bg-gradient-to-r  from-yellow-500/10 to-yellow-900/10 text-yellow-100'>Add News entry</Link>
    </div>}
 
 
@@ -88,7 +94,9 @@ const Navbar = () => {
 
           <Link
             className={`cursor-pointer w-[40px] h-[40px] flex items-center justify-center hover:bg-yellow-100 hover:scale-110 rounded-full ${
-              location.pathname === '/' ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}`}
+          location.pathname === '/' ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}
+          
+          `}
             to='/'
           >
             <BiNews className='w-6 h-6' />

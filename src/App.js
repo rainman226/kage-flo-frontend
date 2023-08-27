@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {  TopAnimesProvider } from "./TopAnimesContext";
 import Animes from "./pages/animes/Animes";
-import News from "./pages/News";
+import News from "./pages/New/News";
 import Login from "./pages/Login/Login";
 import AnimeDetail from "./pages/animes/AnimeDetail";
 import SignUp from "./pages/Login/SignUp";
@@ -12,6 +12,8 @@ import Profile from "./components/Profile"
 import backgroundImage from "./wallpaper.jpg"; // Import the image
 import AnimeDetailPage from "./pages/animes/AnimeDetailPage";
 import AnimeEntry from "./pages/animes/AnimeEntry";
+import NewDetail from "./pages/New/NewDetail";
+import AddNews from "./pages/New/AddNews"
 
 function App() {
   return (<div className="bg-gradient-to-r from-black to-black" //
@@ -37,6 +39,8 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/addEntry" element={<AnimeEntry />} />
+              <Route path="/newDetail/:id" element={<NewDetail />} />
+              <Route path="/addNews" element={<AddNews />}/>
               
              
 
