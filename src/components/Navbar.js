@@ -121,6 +121,7 @@ const Navbar = () => {
           ${location.pathname === '/profile'  ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'} 
           ${location.pathname === '/login'  ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}
           ${location.pathname === '/addEntry'  ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}
+          ${location.pathname === '/addNews'  ?  'bg-yellow-100' : 'hover:bg-opacity-20 rounded-full'}
               `}
             to={isLoggedIn ? '/profile' : '/signup'}
           >

@@ -18,41 +18,18 @@ const FormLogin = () => {
    const { login, isLoggedIn } = useAuth();
 
   const schema = yup.object().shape({
-   fullName: yup.string().required("Your Username is required!"),
+   username: yup.string().required("Your Username is required!"),
    
    password: yup.string().min(4).max(100).required("A Password is needed at least 4 cahracters"),
   });
 
 
-   const [userData, setUserData] = useState(null);
+   const [loading, setLoading] = useState(false); // Add loading state
+   const [pass, setPass] = useState(false)
 
    
 
    
-
-
-   const fetchUserData = async (username) => {
-    try {
-      // Make an API request to fetch user data based on the provided username
-      const response = await axios.get(`http://localhost:8080/user?username=${username}`);
-
-      if (response.data) {
-        console.log(response.data);
-        setUserData(response.data); // Store the retrieved user data
-      } else {
-        setUserData(null); // Reset user data if not found
-      }
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-      setUserData(null); // Reset user data on error
-    }
-  };
-
-
-
-
-  const debouncedFetchUserData = _debounce(fetchUserData, 200);
-
 const {register, handleSubmit, formState:{errors} } = useForm(
   {
     resolver: yupResolver(schema),
@@ -60,36 +37,39 @@ const {register, handleSubmit, formState:{errors} } = useForm(
 );
 
 
-  const onSubmit =  (data) => {
-  try {
 
-    // Call fetchUserData and wait for it to complete
-    // await fetchUserData(userData[0].username);
-
-    if (userData) {
-      const user = userData[0];
-      console.log(user);
-      
-      // Compare the entered password with the stored password
-      if (data.password === user.password) {
-        console.log('Login successful');
-        login();
-        setprofileData(user);
-        console.log(isLoggedIn);
-        navigate("/profile");
+const onSubmit = async (formData) => {
+    try {
+      setLoading(true); // Set loading to true when submitting
+      setPass(false);
+      // Make a POST request to your login endpoint
+      const response = await axios.get(`http://localhost:8080/user/login?username=${formData.username}&password=${formData.password}`);
+     console.log(response.data);
+      if (response.data) {
+        // If login is successful, set profileData and navigate
+        const username = formData.username;
+        const userProfileResponse = await axios.get(`http://localhost:8080/user?username=${username}`);
+        console.log(userProfileResponse.data[0]);
+        setprofileData(userProfileResponse.data[0]); // Assuming your data structure matches your context
+        login(); // Assuming this logs the user in (update as needed)
+        navigate('/profile'); // Redirect to the desired location
+        setPass(false);
       } else {
-        console.log('Login failed');
-        // Handle failed login attempt, show an error message to the user.
+        // Handle login failure, display an error message, etc.
+        console.error('Login failed');
+        setLoading(false);
+        setPass(true);
       }
-    } else {
-      console.log('User not found');
-      // Handle user not found, show an error message to the user.
+    } catch (error) {
+       setLoading(false); // Set loading to false in case of an error
+      console.error('Error during login:', error);
     }
-  } catch (error) {
-    console.error('Error during login:', error);
-    // Handle error, show an error message to the user.
-  }
-};
+  };
+
+
+  
+  
+
 
 
 
@@ -113,9 +93,9 @@ hover:-translate-y-1 hover:scale-110 hover:bg-indigo-900/10 duration-300
 
      <p className='text-white mb-1'>Username or Email</p>
 
-    <input className='mb-3 p-1 w-full bg-yellow-500/20 text-white' type='text' placeholder='UserName' {...register("fullName")} onChange={(e) => debouncedFetchUserData(e.target.value)}/>
+    <input className='mb-3 p-1 w-full bg-yellow-500/20 text-white' type='text' placeholder='UserName' {...register("username")} />
 
-    <p className="text-red-500">{errors.fullName?.message}</p>
+    <p className="text-red-500">{errors.username?.message}</p>
 
    
 <p className='text-white mb-1'>Password</p>
@@ -127,7 +107,10 @@ hover:-translate-y-1 hover:scale-110 hover:bg-indigo-900/10 duration-300
     <Link to = "/signup" className='mt-2  text-yellow-100 hover:text-white'>Don't have an account, Sign Up</Link>
 
     <input className=" rounded mt-4 bg-yellow-100 hover:bg-white cursor-pointer" type='submit' />
+   
+   {loading && <div className="mt-4 text-center text-yellow-50">Loading...</div>}
 
+   {pass && <h1 className="mt-4 text-center text-yellow-50" >Password inccorect</h1>}
     </form>
     
     </div>

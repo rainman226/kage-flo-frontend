@@ -45,7 +45,7 @@ const NewsEntryForm = () => {
   return (
     <div className='w-full h-full flex justify-center items-center'>
       <div className="w-[1100px] h-full flex justify-center border-x-2 border-indigo-900/20 bg-custom-yellow/80 backdrop-blur-2xl p-4 text-yellow-100">
-        <div className="w-auto h-auto flex flex-col items-center justify-center mb-20 rounded-lg transition ease-in-out delay-150 bg-indigo-900/10 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-900/10 duration-300 border-black self-center">
+        <div className="w-auto h-full flex flex-col items-center justify-center mb-20 rounded-lg transition ease-in-out delay-150 bg-indigo-900/10 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-900/10 duration-300 border-black self-center">
           <h1 className="mt-10 text-4xl text-yellow-100">News Entry</h1>
           <form className="flex flex-col justify-center align-middle py-10 w-[300px]" onSubmit={handleSubmit(onSubmit)}>
             <p className="mb-1 text-white">Title</p>
