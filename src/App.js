@@ -16,10 +16,10 @@ import NewDetail from "./pages/New/NewDetail";
 import AddNews from "./pages/New/AddNews"
 
 function App() {
-  return (<div className="bg-gradient-to-r from-black to-black" //
+  return (<div className="bg-gradient-to-r from-indigo-500/80 to-indigo-500" //
     // className="bg-gradient-to-r from-green-100 to-yellow-900"
      style={{
-        backgroundImage: `url(${backgroundImage})`, // Set the background image
+        // backgroundImage: `url(${backgroundImage})`, // Set the background image
         backgroundSize: "cover", // Cover the entire background
         backgroundPosition: "center",
         minHeight: "100vh", // Ensure the div covers the full viewport height

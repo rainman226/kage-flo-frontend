@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
    <div>
-    
+    {/* Top Navbar */}
    <div className='w-90%   bg-custom-yellow/80 flex justify-between py-3  backdrop-blur-3xl items-center'>
     <div className='flex w-[600px] justify-between'>
     <Link to = {"/"} className='ml-20 mb-1 text-2xl font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-yellow-100 to-pink-500/60'>KageFlo</Link>

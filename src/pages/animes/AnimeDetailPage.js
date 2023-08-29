@@ -2,6 +2,7 @@ import React from 'react';
 import { useAnime } from '../../AnimeContext'; // Import the useAnime hook
 import AddAnime from "./AddAnime"
 import { useParams } from 'react-router';
+import ReviewAnime from './ReviewAnime';
 
 const AnimeDetailPage = () => {
   const { selectedAnime } = useAnime();
@@ -75,7 +76,10 @@ const AnimeDetailPage = () => {
       </div>
       
       
-      
+         <div>
+            <ReviewAnime selectedAnime={selectedAnime}/>
+         </div>
+         
       </div>
       </div>
       {/* Include other details you want to display */}
