@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from '../../UserContext';
 import axios from 'axios';
+import {useAuth} from "../../AuthContext"
 
 const ReviewAnime = (props) => {
   const [showText, setShowText] = useState(false);
   const [comment, setComment] = useState('');
   const { profileData } = useUser();
   const [reviews, setReviews] = useState([]);
+  const {isLoggedIn} = useAuth();
 
   const createReviewObject = () => {
     const review = {
@@ -53,12 +55,13 @@ const ReviewAnime = (props) => {
 
   useEffect(() => {
     fetchReviews();
-  }, [props.selectedAnime]);
+  }, [props.selectedAnime, sendReview]);
 
   return (
-    <div className='w-full max-w-screen-md mx-auto p-4'>
-      <h1 className='text-4xl my-4 bg-yellow-100/20 text-center pb-2'>Leave a review</h1>
-      {!showText && (
+    
+     <div className='w-full max-w-screen-md mx-auto p-4'>
+      <h1 className='text-4xl w-full my-4 bg-yellow-100/20 text-center pb-2'>{isLoggedIn ? "Leave a review" : "Reviews"}</h1>
+      {!showText && isLoggedIn &&(
         <button
           onClick={() => setShowText(!showText)}
           className="mt-2 ml-3 px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 self-center "

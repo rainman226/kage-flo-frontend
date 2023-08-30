@@ -9,19 +9,20 @@ import AnimeDetail from "./pages/animes/AnimeDetail";
 import SignUp from "./pages/Login/SignUp";
 import Profile from "./components/Profile"
 
-import backgroundImage from "./wallpaper.jpg"; // Import the image
+import backgroundImage from "./pexels-photo-1038002.jpg"; // Import the image
 import AnimeDetailPage from "./pages/animes/AnimeDetailPage";
 import AnimeEntry from "./pages/animes/AnimeEntry";
 import NewDetail from "./pages/New/NewDetail";
 import AddNews from "./pages/New/AddNews"
 
 function App() {
-  return (<div className="bg-gradient-to-r from-indigo-500/80 to-indigo-500" //
+  return (<div 
+    className="bg-gradient-to-r from-indigo-500/80 to-indigo-500" //
     // className="bg-gradient-to-r from-green-100 to-yellow-900"
      style={{
         // backgroundImage: `url(${backgroundImage})`, // Set the background image
-        backgroundSize: "cover", // Cover the entire background
-        backgroundPosition: "center",
+        backgroundSize: "repeat", // Cover the entire background
+        // backgroundPosition: "center",
         minHeight: "100vh", // Ensure the div covers the full viewport height
       }}
     >
@@ -32,7 +33,7 @@ function App() {
             <Routes>
               
               <Route path="/" element={<News />} />
-              <Route path="/anime/:title" element={<AnimeDetailPage />} />
+              <Route path="/anime/:id" element={<AnimeDetailPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/animes" element={<Animes />} />
               {/* <Route path="/anim/:id" element={<AnimeDetail />} /> */}

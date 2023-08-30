@@ -58,6 +58,37 @@ const AddAnime = (props) => {
   };
 
 
+
+  //Deleting entry 
+  const deleteAnimeEntry = async () => {
+  if (!animeEntryId) {
+    console.error('Anime entry ID is missing.');
+    return;
+  }
+
+  // Your API endpoint to delete anime entry
+  const url = `http://localhost:8080/entry/delete?id=${animeEntryId}`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      console.log('Anime entry deleted successfully.');
+      setIsAnimeSaved(false); // Update the state to indicate that the anime is no longer saved
+    } else {
+      console.error('Failed to delete anime entry.');
+    }
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+};
+
+
+
+
+
 const handleDoneClick = async () => {
   await updateAnimeEntry(); // Wait for state updates to complete
   // Now you can perform any additional actions after the update
@@ -156,6 +187,12 @@ const handleDoneClick = async () => {
           </button>
           {isAnimeSaved && (
             <div>
+              <button
+      onClick={deleteAnimeEntry}
+      className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded w-auto mt-2"
+    >
+      Delete Anime
+    </button>
               <h1 className="text-3xl">Status</h1>
               <select
                 value={status}

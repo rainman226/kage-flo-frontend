@@ -78,7 +78,7 @@ const handleSearch = () => {
           </div>
 
 
-   <h1 className='text-2xl   self-center'>All Animess</h1>
+   <h1 className='text-2xl   self-center'>All Animes</h1>
    <Carosel  topAnimesData={topAnimesData} searchQuery={searchQuery} searchAnimesData={searchAnimesData}
     currentPage={currentPage} // Pass currentPage to Carosel
     setCurrentPage={setCurrentPage} />

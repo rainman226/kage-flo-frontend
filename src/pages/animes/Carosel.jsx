@@ -78,7 +78,7 @@ function Carosel(props) {
 <div className='w-auto h-auto flex flex-wrap justify-center  '>
       {filteredAnimes.map((anime, index) => (
         <Link 
-         to={`/anime/${anime.title.replace(/\s+/g, '-')}`}
+         to={`/anime/${anime.id}`}
          key={index}  onClick={() => handleAnimeClick(anime)}>
           
           <div
