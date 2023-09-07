@@ -48,7 +48,7 @@ const {register, handleSubmit, formState:{errors} } = useForm(
 
 
 
-
+  //Here we send the data whitout the confirm password we make a post endpoint to db and we navigate to login if succesfull
   const onSubmit = async (data) => {
    
    try {

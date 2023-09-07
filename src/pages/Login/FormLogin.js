@@ -10,6 +10,8 @@ import { useUser } from '../../UserContext';
 
 import * as yup from 'yup';
 
+
+//schema
 const FormLogin = () => {
    const navigate = useNavigate();
 
@@ -25,7 +27,7 @@ const FormLogin = () => {
 
 
    const [loading, setLoading] = useState(false); // Add loading state
-   const [pass, setPass] = useState(false)
+   const [pass, setPass] = useState(false)// Pass state where we check the password and username 
 
    
 
@@ -110,7 +112,7 @@ hover:-translate-y-1 hover:scale-110 hover:bg-indigo-900/10 duration-300
    
    {loading && <div className="mt-4 text-center text-yellow-50">Loading...</div>}
 
-   {pass && <h1 className="mt-4 text-center text-yellow-50" >Password inccorect</h1>}
+   {pass && <h1 className="mt-4 text-center text-yellow-50" >Password or Username inccorect</h1>}
     </form>
     
     </div>

@@ -2,7 +2,8 @@
 
 import React, { createContext, useContext, useState , useEffect} from 'react';
 
-
+// Here we have authContext wich will let us know if the user is logged in 
+// Also the login and logout functions wich memorate your user to a memory
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {

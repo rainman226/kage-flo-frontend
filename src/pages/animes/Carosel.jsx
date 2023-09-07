@@ -76,6 +76,7 @@ function Carosel(props) {
     <div className=' h-full w-full m-auto py-6 px-4 relative group flex flex-col transition-transform duration-300 ease-in-out'>
      
 <div className='w-auto h-auto flex flex-wrap justify-center  '>
+      {/* Here we have the search and we send it with a link to anime/id */}
       {filteredAnimes.map((anime, index) => (
         <Link 
          to={`/anime/${anime.id}`}

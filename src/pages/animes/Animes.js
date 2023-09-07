@@ -11,6 +11,7 @@ const Animes = () => {
    const [searchQuery, setSearchQuery] = useState('');
    const [currentPage, setCurrentPage] = useState(1);
 
+   //Here in the useEffect we fetch and api that will send us a page of animes
    useEffect(() => {
   const apiUrl = `http://localhost:8080/anime/getAnime?page=${currentPage}`;
  
@@ -23,7 +24,7 @@ const Animes = () => {
       console.error('Error fetching data:', error);
     });
     
-    
+    //in this fetch we get all the animes and we save it in a state wich we will send as prop for the search 
     const apiUrl2 = 'http://localhost:8080/anime/all';
      axios.get(apiUrl2)
     .then(response => {
@@ -77,8 +78,9 @@ const handleSearch = () => {
             </button>
           </div>
 
-
+  
    <h1 className='text-2xl   self-center'>All Animes</h1>
+   {/* Here we have the pages  */}
    <Carosel  topAnimesData={topAnimesData} searchQuery={searchQuery} searchAnimesData={searchAnimesData}
     currentPage={currentPage} // Pass currentPage to Carosel
     setCurrentPage={setCurrentPage} />

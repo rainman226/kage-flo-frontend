@@ -16,7 +16,7 @@ const TopAnimes = () => {
         {topAnimesData.slice(1, 4).map(anime => (
           <li key={anime.mal_id}>
             <Link 
-            to={`/anim/${anime.mal_id}`}
+            to={`/top/${anime.mal_id}`}
             >
               <img
                 src={anime.images.jpg.image_url}

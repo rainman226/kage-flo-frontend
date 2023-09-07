@@ -94,7 +94,7 @@ const handleDoneClick = async () => {
   // Now you can perform any additional actions after the update
 };
 
-
+//Here we save the anime with a requestBody type(structure)
   const saveAnime = async () => {
   // Your API endpoint to save anime
   const url = 'http://localhost:8080/entry/save';
@@ -136,6 +136,8 @@ const handleDoneClick = async () => {
   }
 };
 
+
+//Here we update the anime whenever is a change
   const updateAnimeEntry = async () => {
     if (!animeEntryId) {
       console.error('Anime entry ID is missing.');

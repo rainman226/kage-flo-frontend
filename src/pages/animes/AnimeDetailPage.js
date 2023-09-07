@@ -11,10 +11,12 @@ const AnimeDetailPage = () => {
   
    const {id} = useParams();
 
+ //Here when we render the page we get the id from the url and fetch using that id
   useEffect(() => {
     // Fetch anime data from the API
     const animeResource = `http://localhost:8080/anime?id=${id}`;
     setLoading(true);
+    
     fetch(animeResource) // Replace with the actual API URL
       .then(response => response.json())
       .then(data => {
@@ -29,8 +31,10 @@ const AnimeDetailPage = () => {
 
   // Check if a selected anime is available
   if(loading){
-    return <div className='w-full h-full text-center text-3xl text-yellow-100'>Loading ...</div>
+    return <div className='w-full h-full text-center text-3xl text-red-600'>Loading ...</div>
   }
+
+  //Here we check if the user manually put a different anime that we don't have
   if(!anime){
     return <div>No anime found</div>;
   }
@@ -77,6 +81,7 @@ const AnimeDetailPage = () => {
       
       
          <div>
+          {/* Here we call the ReviewAnime Component */}
             <ReviewAnime selectedAnime={anime}/>
          </div>
          

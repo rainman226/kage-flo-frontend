@@ -3,8 +3,16 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+// Here we use a UseForm form wich is a library
+//And we use Yup for validating the schema(structure) of the form 
+//and yupResolver to compare what we typed to the schema
 
 const AnimeEntryForm = () => {
+
+ const navigate = useNavigate();
+//This is the schema
   const schema = yup.object().shape({
     title: yup.string().required('Title is required'),
     startDate: yup.string().required('Start Date is required'),
@@ -18,10 +26,13 @@ const AnimeEntryForm = () => {
     studio: yup.string().required('Studio is required'),
   });
 
+//Here we get the register, handleSubmit and errors from The form
+
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
 
+  //Here we add the entry using a post type endpoint
   const onSubmit = async (data) => {
     try {
       // Make a POST request to the specified endpoint
@@ -32,6 +43,7 @@ const AnimeEntryForm = () => {
       });
       console.log('Anime data sent successfully:', response.data);
       // Add any navigation or success message logic here
+      navigate("/animes")
     } catch (error) {
       console.error('Error sending anime data:', error);
       // Handle the error, e.g., display an error message

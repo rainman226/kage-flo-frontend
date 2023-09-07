@@ -7,6 +7,7 @@ const News = () => {
   const [news, setNews] = useState([]);
   const [lastAnime,setLastAnime] = useState([]);
 
+  // Here we get 2 requests to get all the news and to get all terh animes where we will modify to get the last 4 animes added
   useEffect(() => {
     const apiurl = 'http://localhost:8080/news/all';
 

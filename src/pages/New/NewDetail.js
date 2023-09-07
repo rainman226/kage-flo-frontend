@@ -6,6 +6,8 @@ const NewDetail = () => {
   const { id } = useParams();
   const [newsDetail, setNewsDetail] = useState({});
 
+
+  //Here we get the id from url and we fetch with it all the news/ and we show details about the news 
   useEffect(() => {
     const apiurl = `http://localhost:8080/news/get?id=${id}`;
 

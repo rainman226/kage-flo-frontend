@@ -26,6 +26,7 @@ function App() {
         minHeight: "100vh", // Ensure the div covers the full viewport height
       }}
     >
+      {/* Here are all the routes and all the paths to know exactly where to go and what component to render */}
       <Router>
         <TopAnimesProvider> {/* Wrap your component tree */}
           <Navbar />
@@ -36,7 +37,7 @@ function App() {
               <Route path="/anime/:id" element={<AnimeDetailPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/animes" element={<Animes />} />
-              {/* <Route path="/anim/:id" element={<AnimeDetail />} /> */}
+              <Route path="/top/:id" element={<AnimeDetail />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/addEntry" element={<AnimeEntry />} />

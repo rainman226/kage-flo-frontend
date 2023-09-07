@@ -36,7 +36,7 @@ const Profile = () => {
     return '';
   };
 
-
+   //Here we calculate the count of saved animes for the badge (blue one)
    const itemCount = userData ? userData.length : false;
    console.log("This is the Item Count",itemCount);
  
@@ -65,7 +65,7 @@ const Profile = () => {
                <h1 className='my-6 ml-5 font-light'>Welcome back {profileData.username}</h1>
                <div className='ml-20 flex flex-col'>
                <h1 className='my-6 ml-5 font-light'>Badges:</h1>
-               <h1 className='text-3xl ml-5'>{itemCount >= 3 ? (
+               <h1 className='text-3xl ml-5'>{itemCount >= 10 ? (
                 <div className='flex w-auto'>
     <BiDoughnutChart className='w-[50px] h-[50px] text-blue-500 font-extrabold' />
    {profileData.admin ? (
@@ -88,6 +88,7 @@ const Profile = () => {
       {/* <h1 className='my-5'>{profileData.admin ? "Seems that you are an Admin" : "You are not an Admin"}</h1> */}
     </div>
     <div className='text-black '>
+      {/* Here we display all the animes trough a map(wich is basicaly a for for arrays in ) */}
    {Array.isArray(userData) ? (
   userData.map((item) => (
     <div className={`flex h-[80px] w-full mb-10 rounded-md justify-center align-middle ${item.status}`} key={item.id}>

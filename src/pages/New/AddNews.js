@@ -4,14 +4,17 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import { useUser } from '../../UserContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const NewsEntryForm = () => {
 
+  const navigate = useNavigate() 
+
   const {profileData} = useUser();
   console.log(profileData);
 
-
+//Here we Have Schema
   const schema = yup.object().shape({
     title: yup.string().required('Title is required'),
     cover: yup.string().url('Cover must be a valid URL').required('Cover URL is required'),
@@ -26,6 +29,8 @@ const NewsEntryForm = () => {
     },
   });
 
+
+  //Here we make a post request tot the database using the data we just typed and we navigate to home page
   const onSubmit = async (data) => {
     try {
       // Make a POST request to the specified endpoint
@@ -36,6 +41,7 @@ const NewsEntryForm = () => {
       });
       console.log('News data sent successfully:', response.data);
       // Add any navigation or success message logic here
+      navigate("/")
     } catch (error) {
       console.error('Error sending news data:', error);
       // Handle the error, e.g., display an error message

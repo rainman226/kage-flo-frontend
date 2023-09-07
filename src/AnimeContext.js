@@ -5,7 +5,7 @@ const AnimeContext = createContext();
 export function AnimeProvider({ children }) {
   const [selectedAnime, setSelectedAnime] = useState(null);
 
- 
+ //Here we have a context for the selected anime, so when u press on an anime it saves the anime data wich will be send to animedetails
 
   return (
     <AnimeContext.Provider value={{ selectedAnime, setSelectedAnime }}>

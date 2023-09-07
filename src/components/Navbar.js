@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useUser } from '../UserContext';
 
 const Navbar = () => {
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -22,7 +23,7 @@ const Navbar = () => {
 
   const { isLoggedIn, logout } = useAuth(); // Get the isLoggedIn state from the context
 
-
+  //function to set the bar visible
    const toggleBottomNavbar = () => {
     setBottomNavbarVisible(!bottomNavbarVisible);
   };
@@ -32,10 +33,10 @@ const Navbar = () => {
    <div>
     {/* Top Navbar */}
    <div className='w-90%   bg-custom-yellow/80 flex justify-between py-3  backdrop-blur-3xl items-center'>
-    <div className='flex w-[600px] justify-between'>
+    <div className='flex w-[600px] justify-between '>
     <Link to = {"/"} className='ml-20 mb-1 text-2xl font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-yellow-100 to-pink-500/60'>KageFlo</Link>
 
-    <div > {/* Add margin to create space for the bottom navbar */}
+    <div > 
         <button
           className=' bg-white/20 p-2 rounded hover:bg-gradient-to-r from-yellow-500/10 to-yellow-900/10 text-yellow-100 fixed'
           onClick={toggleBottomNavbar}
@@ -74,10 +75,10 @@ const Navbar = () => {
             </button>
              }
 
-    <Link to= "/">
+    {/* <Link to= "/">
       <button className='bg-white/20  p-2  rounded hover:bg-gradient-to-r from-yellow-500/10 to-yellow-900/10 '>Log in as an Admin</button>
       
-      </Link>
+      </Link> */}
     </div>
    </div>
 

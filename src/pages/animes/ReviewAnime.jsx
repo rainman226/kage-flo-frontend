@@ -9,7 +9,7 @@ const ReviewAnime = (props) => {
   const { profileData } = useUser();
   const [reviews, setReviews] = useState([]);
   const {isLoggedIn} = useAuth();
-
+// Here we create the object wich we will send to the db
   const createReviewObject = () => {
     const review = {
       userID: {
@@ -25,7 +25,7 @@ const ReviewAnime = (props) => {
     };
     return review;
   };
-
+//This function posts the review in the Data base essentialy showing the review in the UseEffect
   const sendReview = async () => {
     try {
       const reviewData = createReviewObject();
@@ -42,7 +42,7 @@ const ReviewAnime = (props) => {
       // Handle the error, e.g., display an error message
     }
   };
-
+//Here we have the fetchReviews wich shows us the reviews evrytime we change props.selectedAnime, sendReview
   const fetchReviews = async () => {
     try {
       const response = await axios.get(`http://localhost:8080/review?animeID=${props.selectedAnime.id}`);
@@ -52,10 +52,10 @@ const ReviewAnime = (props) => {
       console.error('Error fetching reviews:', error);
     }
   };
-
+//in this UseEffect we call the function from just before
   useEffect(() => {
     fetchReviews();
-  }, [props.selectedAnime, sendReview]);
+  }, [props.selectedAnime]);
 
   return (
     
