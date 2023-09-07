@@ -36,7 +36,7 @@ const Animes = () => {
     });
 }, [currentPage]);
 
-
+//Here we search by keywords
 const handleSearch = () => {
     const searchApiUrl = `http://localhost:8080/anime/search?keyword=${searchQuery}`;
 

@@ -36,15 +36,31 @@ const AnimeDetail = () => {
           <img className='w-full my-10 shadow hover:shadow-2xl' src={data.images.jpg.image_url} alt={data.title} />
           </div>
 
-          <div className='ml-10 max-w-[600px]'>
-          <p>{data.synopsis}</p>
-           <p>{data.status}</p>
-           <p>{data.mal_id}</p>
+          <div className='ml-10 w-[600px] text-center flex flex-col justify-center'>
+            <h1 className=' text-yellow-100 text-4xl font-bold'>Title: {data.title}</h1>
+            <h1 className=' text-yellow-100 my-3 text-3xl '>Type: TV</h1>
+            <h1 className=' text-yellow-100 my-3 text-3xl '>Studio: {data.studios[0].name}</h1>
+            <h1 className=' text-yellow-100 my-3 text-3xl '>Status: {data.status}</h1>
+          <h1 className=' text-yellow-100 my-3 text-3xl '>Start-Date: {data.aired.from}</h1>
+          <h1 className=' text-yellow-100 my-3 text-3xl '>End-Date: {data.aired.to}</h1>
+          <h1 className=' text-yellow-100 my-3 text-3xl '>Source: Manga</h1>
+          
+          <h1 className=' text-yellow-100 my-3 text-3xl '>Episodes: {data.episodes}</h1>
+          
+          
+          
+             {/* <h1 className=' text-yellow-100 my-3'>Type: {anime.type}</h1>
+             <h1 className=' text-yellow-100 my-3'>Studio: {anime.studio}</h1>
+             <h1 className=' text-yellow-100 my-3'>Status: {anime.status}</h1>
+             <h1 className=' text-yellow-100 my-3'>Starte-Date: {anime.startDate}</h1>
+             <h1 className=' text-yellow-100 my-3'>End-Date: {anime.endDate}</h1>
+             <h1 className=' text-yellow-100 my-3'>Source: {anime.source}</h1>
+            <h1 className=' text-yellow-100 my-3'>Episodes: {anime.episodes ? anime.episodes: "Ongoing" }</h1> */}
            
 
-           <button>
+           {/* <button>
             <HiSave className='w-[50px] h-[50px] text-black'/>
-           </button>
+           </button> */}
            </div>
             
         </div>
