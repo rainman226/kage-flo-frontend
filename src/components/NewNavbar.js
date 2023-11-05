@@ -1,7 +1,28 @@
-import { Link } from 'react-router-dom'; // Import the Link component from React Router
+import { Link, useLocation,useNavigate } from 'react-router-dom'; // Import the Link component from React Router
+import { useAuth } from '../AuthContext';
+import { useState } from 'react';
+import { useUser } from '../UserContext';
 import './style--nav.css';
 
 const NewNavbar = () => {
+
+  const location = useLocation();
+
+  const navigate = useNavigate();
+
+  const {profileData} = useUser();
+
+  console.log("this is the userData", profileData);
+
+   const handleLogout = () => {
+    // Perform logout logic, then navigate to the signup route
+    logout();
+    navigate('/signup');
+  };
+
+  
+    const { isLoggedIn, logout } = useAuth(); // Get the isLoggedIn state from the context
+console.log(isLoggedIn)
   return (
     <header className='header'>
      <nav className='container'>
@@ -15,12 +36,22 @@ const NewNavbar = () => {
        <li>
         <Link to="animes">Browse</Link>
         </li>
-       <li>Profile</li>
+       <li>
+        <Link to="/profile">Profile</Link>
+        </li>
       </ul>
 
       <ul className='header__info'>
-       <li>Log In</li>
-       <li>Sign In</li>
+       <li>
+       {!isLoggedIn && <Link to="/login">Log In</Link>}
+        </li>
+       <li className='Sign__Up'>
+        {isLoggedIn ? (
+    <button className='button__out' onClick={handleLogout}>Log Out</button>
+  ) : (
+    <Link to="/signup">Sign In</Link>
+  )}
+        </li>
       </ul>
      
      </nav>
