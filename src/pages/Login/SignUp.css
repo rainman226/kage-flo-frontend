@@ -1,0 +1,52 @@
+/* NewFormSignUp.css */
+.background {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-suport {
+  display: flex;
+  width: 1000px;
+  height: 700px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  position: relative;
+  height: 700px;
+  width: 1000px;
+  background-size: cover;
+  background-position: center;
+  background-color: #5a5858; /* Gray background color for the form container */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.945); /* Add a shadow to the container */
+  overflow: hidden; /* Hide the overflow from ::before pseudo-element */
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #5a5858; /* Color of the overlay, same as the form background color */
+  filter: blur(10px); /* Apply a blur effect */
+  z-index: -1;
+}
+
+.form-setup {
+  position: relative; /* Make it a child of form-container */
+  z-index: 1; /* Place it above the blur overlay */
+  width: 100%;
+  height: 100%;
+  background-color: transparent; /* Set a transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

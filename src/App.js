@@ -8,6 +8,7 @@ import News from "./pages/New/News";
 import Login from "./pages/Login/Login";
 import AnimeDetail from "./pages/animes/AnimeDetail";
 import SignUp from "./pages/Login/SignUp";
+import NewFromSignUp from "./pages/Login/NewFromSignUp"
 import Profile from "./components/Profile"
 
 import backgroundImage from "./pexels-photo-1038002.jpg"; // Import the image
@@ -15,6 +16,7 @@ import AnimeDetailPage from "./pages/animes/AnimeDetailPage";
 import AnimeEntry from "./pages/animes/AnimeEntry";
 import NewDetail from "./pages/New/NewDetail";
 import AddNews from "./pages/New/AddNews"
+
 
 function App() {
   return (<div 
@@ -40,7 +42,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/animes" element={<Animes />} />
               <Route path="/top/:id" element={<AnimeDetail />} />
-              <Route path="/signup" element={<SignUp />} />
+              <Route path="/signup" element={<NewFromSignUp />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/addEntry" element={<AnimeEntry />} />
               <Route path="/newDetail/:id" element={<NewDetail />} />

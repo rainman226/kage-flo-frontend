@@ -46,10 +46,12 @@ position: relative;
   font-family: 'Pixelify Sans', sans-serif;
    letter-spacing: 2px;
   text-transform: uppercase;
-  background: linear-gradient(45deg, #4ecdc4, #5562c3, #ff6b6b);
-  -webkit-background-clip: text; /* For webkit browsers to clip the text */
-  background-clip: text;
-  -webkit-text-fill-color: transparent; /* Hide text color to show gradient */
+  /* background: linear-gradient(45deg, #4ecdc4, #5562c3, #ff6b6b);
+  -webkit-background-clip: text;  */
+  /* For webkit browsers to clip the text */
+  /* background-clip: text;
+  -webkit-text-fill-color: transparent; */
+   /* Hide text color to show gradient */
 }
   /* transition: transform 0.3s ease-in; */
 /* }
@@ -135,17 +137,45 @@ justify-content: end;
   border: 2px solid #5562c3;
   border-radius: 8px;
   background-color: #5562c3;
-  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: background 0.5s ease-in-out, border-color 0.5s ease-in-out;
 }
 .Sign__Up:hover{
-  background-color: #4ecdc4;
+  background: linear-gradient(45deg, #4ecdc4, #5562c3, #ff6b6b);
   border-color: #4ecdc4;
-  color: #000000;
+  /* color: #000000; */
+}
+.logo{
+  width: 108px;
+   background: linear-gradient(45deg, #4ecdc4, #5562c3, #ff6b6b);
+  -webkit-background-clip: text; /* For webkit browsers to clip the text */
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Hide text color to show gradient */
+}
+.Log__In{
+  color: #FFF;
+ position: relative; /* Add this line */
+  /* margin-right: 30px; */
+  font-family: 'Antonio', sans-serif;
+  font-size: 20px;
+  transition: color 0.5s ease-in-out;
+}
+.Log__In :hover {
+  color: rgba(240, 243, 243, 0.466);
+}
+.Log__In::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px; /* Adjust the thickness of the border as needed */
+  background-color: rgba(240, 243, 243, 0.466); /* Initial border color */
+  transition: width 0.3s ease-in-out; /* Add a smooth transition for the width */
 }
 
-
-
-
+.Log__In:hover::before {
+  width: 100%; /* Expand the border to 100% on hover */
+}
 
 
 /* li{

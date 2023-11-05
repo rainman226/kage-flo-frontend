@@ -27,7 +27,7 @@ console.log(isLoggedIn)
     <header className='header'>
      <nav className='container'>
      <div className='header_logo'>
-      <h1>KageFlo</h1>
+      <h1 className='logo'>KageFlo</h1>
       </div>
 
       <ul className='header__menu'>
@@ -42,14 +42,14 @@ console.log(isLoggedIn)
       </ul>
 
       <ul className='header__info'>
-       <li>
+       <li className='Log__In'>
        {!isLoggedIn && <Link to="/login">Log In</Link>}
         </li>
        <li className='Sign__Up'>
         {isLoggedIn ? (
     <button className='button__out' onClick={handleLogout}>Log Out</button>
   ) : (
-    <Link to="/signup">Sign In</Link>
+    <Link to="/signup">Sign Up</Link>
   )}
         </li>
       </ul>
