@@ -1,0 +1,84 @@
+/* .header{
+ width: 100vw;
+ overflow: hidden;
+}
+.container{
+ width: full;
+   display: flex;
+   background-color: rgba(23, 23, 116, 0.521);
+}
+.header--logo{
+flex: 1;
+display: flex;
+position: relative;
+}
+.header--menu{
+
+} */
+
+/* style--nav.css */
+.header {
+  background-color: #333333;
+  color: #fff;
+  padding: 10px 0;
+  border-bottom-left-radius: 10px; /* Adjust the radius as needed */
+  border-bottom-right-radius: 10px; 
+  width: 100%;
+   border: 1px solid rgba(255, 255, 255, 0.2); /* Create a transparent border */
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2); /* Add a subtle shadow */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header_logo {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Bebas Neue;
+  text-transform: uppercase;
+  transition: transform 0.3s ease-in;
+}
+.header_logo:hover{
+ transform: translateY(-4px);
+}
+
+.header__menu {
+  list-style: none;
+  display: flex;
+}
+
+.header__menu li {
+ text-transform: uppercase;
+  margin-right: 80px;
+}
+
+.header-menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header__info {
+  list-style: none;
+  display: flex;
+}
+
+.header-info li {
+  margin-right: 10px;
+}
+
+.header-info a {
+  color: #fff;
+  text-decoration: none;
+}
+li{
+ transition: color 0.5s;
+}
+li:hover{
+ color: rgba(240, 243, 243, 0.466);
+}

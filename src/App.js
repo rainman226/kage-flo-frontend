@@ -1,4 +1,5 @@
 import React from "react";
+import NewNavbar from "../src/components/NewNavbar"
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {  TopAnimesProvider } from "./TopAnimesContext";
@@ -24,12 +25,13 @@ function App() {
         backgroundSize: "repeat", // Cover the entire background
         // backgroundPosition: "center",
         minHeight: "100vh", // Ensure the div covers the full viewport height
+        overflow: "hidden"
       }}
     >
       {/* Here are all the routes and all the paths to know exactly where to go and what component to render */}
       <Router>
         <TopAnimesProvider> {/* Wrap your component tree */}
-          <Navbar />
+          <NewNavbar />
           <div>
             <Routes>
               
