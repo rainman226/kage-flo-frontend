@@ -137,11 +137,14 @@ justify-content: end;
   border: 2px solid #5562c3;
   border-radius: 8px;
   background-color: #5562c3;
-  transition: background 0.5s ease-in-out, border-color 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .Sign__Up:hover{
   background: linear-gradient(45deg, #4ecdc4, #5562c3, #ff6b6b);
-  border-color: #4ecdc4;
+  /* linear-gradient(, ); */
+  /* border-color: #4ecdc4; */
+  box-shadow: #fff;
+  /* 135deg, #ff9900, #ff3366 */
   /* color: #000000; */
 }
 .logo{
@@ -157,9 +160,9 @@ justify-content: end;
   /* margin-right: 30px; */
   font-family: 'Antonio', sans-serif;
   font-size: 20px;
-  transition: color 0.5s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
-.Log__In :hover {
+.Log__In:hover {
   color: rgba(240, 243, 243, 0.466);
 }
 .Log__In::before {
