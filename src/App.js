@@ -1,11 +1,10 @@
 import React from "react";
 import NewNavbar from "../src/components/NewNavbar"
-import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {  TopAnimesProvider } from "./TopAnimesContext";
 import Animes from "./pages/animes/Animes";
 import News from "./pages/New/News";
-import Login from "./pages/Login/Login";
+import NewFormLogin from "./pages/Login/NewFormLogin";
 import AnimeDetail from "./pages/animes/AnimeDetail";
 import SignUp from "./pages/Login/SignUp";
 import NewFromSignUp from "./pages/Login/NewFromSignUp"
@@ -39,7 +38,7 @@ function App() {
               
               <Route path="/" element={<News />} />
               <Route path="/anime/:id" element={<AnimeDetailPage />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<NewFormLogin />} />
               <Route path="/animes" element={<Animes />} />
               <Route path="/top/:id" element={<AnimeDetail />} />
               <Route path="/signup" element={<NewFromSignUp />} />

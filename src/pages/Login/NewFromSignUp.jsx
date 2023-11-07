@@ -22,8 +22,6 @@ const NewFromSignUp = () => {
    .oneOf([yup.ref("password"), null], "Passwords don't match")
    .required("The passwords are not the same"),
 
-
-
   });
 
 
@@ -124,8 +122,6 @@ const {register, handleSubmit, formState:{errors} } = useForm(
         
       </div>
 
-      {/* <div className='footer'></div> */}
-     
     </div>
   );
 };

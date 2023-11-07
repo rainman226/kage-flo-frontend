@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useLocation,useNavigate } from 'react-router-dom';
 import { BiNews, BiUser, BiSearch,BiAngry } from 'react-icons/bi';
-import { useAuth } from '../AuthContext';
+import { useAuth } from '../src/AuthContext';
 import { useState } from 'react';
-import { useUser } from '../UserContext';
+import { useUser } from '../src/UserContext';
 
 const Navbar = () => {
 

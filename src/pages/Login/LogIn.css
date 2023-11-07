@@ -1,0 +1,73 @@
+@keyframes slideInLeft {
+
+  from{transform: translatex(-300px);}
+  
+
+  to{transform: translatex(0)}
+}
+
+.form__login{
+ padding-top: 30px;
+   animation-name: slideInLeft;
+  animation-duration: 0.9s;
+  
+ width: 50%;
+  display: flex;
+  flex-direction: column;
+  color: aliceblue;
+}
+
+.input__field {
+ font-size: 25px;
+    position: relative;
+    text-decoration: none;
+    background-color: #000000;
+    border: none; /* Remove the border */
+     outline: none;
+     border-bottom: 1px solid transparent;
+     border-image: linear-gradient(45deg, #4ecdc4, #5562c3, #ff6b6b) 1;
+}
+
+.for_gojo{
+ position: relative;
+}
+.logo_Img{
+  
+ position: absolute;
+  top: 50px; /* Adjust the top position as needed */
+  left: 340px;
+  animation-name: slideInLeft;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow properties */
+  /* Adjust opacity for the floating effect */
+  transition: transform 0.3s ease; /* Add a transition for smooth hover effects */
+  animation-duration: 0.9s;
+
+  &:hover{
+  
+    transform: scale(1.05); /* Scale the image slightly on hover */
+  
+  }
+}
+
+
+.dont{
+ margin-top: 6px;
+ margin-bottom: 6px;
+ width: 180px;
+ background: linear-gradient(45deg, #4ecdc4, #5562c3, #ff6b6b);
+  -webkit-background-clip: text; /* For webkit browsers to clip the text */
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Hide text color to show gradient */
+  transition: all 0.4s ease-in-out;
+}
+.dont:hover{
+ background: #fff;
+  -webkit-background-clip: text; /* For webkit browsers to clip the text */
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Hide text color to show gradient */
+  transition: color 0.4s ease-in-out;
+}
+.loading__text{
+ text-align: center;
+ margin-top: 10px;
+}
