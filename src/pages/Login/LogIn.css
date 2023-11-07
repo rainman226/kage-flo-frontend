@@ -34,8 +34,9 @@
 .logo_Img{
   
  position: absolute;
-  top: 50px; /* Adjust the top position as needed */
-  left: 340px;
+  top: 60px; /* Adjust the top position as needed */
+  left: 490px;
+  height: 500px;
   animation-name: slideInLeft;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow properties */
   /* Adjust opacity for the floating effect */
@@ -52,6 +53,7 @@
 
 .dont{
  margin-top: 6px;
+ font-weight: bold;
  margin-bottom: 6px;
  width: 180px;
  background: linear-gradient(45deg, #4ecdc4, #5562c3, #ff6b6b);

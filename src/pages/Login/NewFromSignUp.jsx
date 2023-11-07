@@ -86,27 +86,27 @@ const {register, handleSubmit, formState:{errors} } = useForm(
         <form className='form__info'  onSubmit={handleSubmit(onSubmit)}>
 
     <p className='input__text'>UserName</p>
-<input className='input__field'  type='text' placeholder='UserName...' {...register("username")} />
+<input className='input__field input__field__signUp'  type='text' placeholder='UserName...' {...register("username")} />
 
     <p className='err'>{errors.username?.message}</p>
 
    <p className='input__text'>Email</p>
-    <input className='input__field'  type='text' placeholder='Email...' {...register("email")} />
+    <input className='input__field input__field__signUp'  type='text' placeholder='Email...' {...register("email")} />
 
     <p className='err'>{errors.email?.message}</p>
 
 <p className='input__text'>Date of Birth</p>
-    <input className='input__field' type='date' placeholder='date..' {...register("dob")} />
+    <input className='input__field input__field__signUp' type='date' placeholder='date..' {...register("dob")} />
 
     <p className='err'>{errors.dob?.message}</p>
 
 <p className='input__text'>Password</p>
-    <input className='input__field' type='password' placeholder='Password...' {...register("password")} />
+    <input className='input__field input__field__signUp' type='password' placeholder='Password...' {...register("password")} />
 
     <p className='err'>{errors.password?.message}</p>
 
 <p className='input__text'>Confirm Password</p>
-    <input className='input__field' type='password' placeholder='Confirm Password...' {...register("confirmPassword")} />
+    <input className='input__field input__field__signUp' type='password' placeholder='Confirm Password...' {...register("confirmPassword")} />
 
     <p >{errors.confirmPassword?.message}</p>
 

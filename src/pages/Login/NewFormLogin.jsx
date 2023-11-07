@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import _debounce from 'lodash/debounce';
 import { useUser } from '../../UserContext';
 import backgroundImage from './wp11166273.webp'
-import logoImg from './83d492160dcd1cd8737ca43adf70a5da.png'
+import logoImg from './tac_pac_mrk.png'
 import './LogIn.css';
 
 import * as yup from 'yup';
@@ -110,7 +110,7 @@ const onSubmit = async (formData) => {
    
    {loading && <div className='loading__text'>Loading...</div>}
 
-   {pass && <h1>Password or Username inccorect</h1>}
+   {pass && <h1 className='loading__text'>Password or Username inccorect</h1>}
     </form>
         
         

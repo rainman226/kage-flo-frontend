@@ -145,6 +145,7 @@ animation-duration: 0.9s;
 
 /* This is the subbmit button uwu */
 .submit_button{
+  font-weight: bold;
   background-color: aliceblue;
   padding: 3px;
   width: 50%;
@@ -160,4 +161,7 @@ animation-duration: 0.9s;
   background-color: #000000;
   color: aliceblue;
   margin-top: 25px;
+}
+.input__field__signUp{
+  font-size: 20px;
 }
