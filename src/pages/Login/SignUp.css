@@ -79,6 +79,7 @@ animation-duration: 0.9s;
 font-size: 80px;
 }
 .logo_sign{
+
 animation-name: slideInLeft;
 animation-duration: 0.9s;
 
@@ -127,14 +128,22 @@ animation-duration: 0.9s;
 
 /* Designing the input fields (Where the user writes) */
 
-.input__field {
+.input__field__signUp {
     position: relative;
     text-decoration: none;
-    background-color: #000000;
-    border: none; /* Remove the border */
      outline: none;
-     border-bottom: 1px solid transparent;
-     border-image: linear-gradient(45deg, #4ecdc4, #5562c3, #ff6b6b) 1;
+     background-color: #000000;
+     background-image: linear-gradient(45deg, #4ecdc4, #5562c3, #ff6b6b);
+     background-size: 0% 3px;
+     background-repeat: no-repeat;
+     background-position: left bottom;
+     transition: all 0.4s ease;
+}
+.input__field__signUp:hover{
+  background-size: 100% 3px;
+}
+.input__field__signUp:active{
+  background-color: #000000;
 }
 
 
@@ -147,7 +156,7 @@ animation-duration: 0.9s;
 .submit_button{
   font-weight: bold;
   background-color: aliceblue;
-  padding: 3px;
+  padding: 7px;
   width: 50%;
   align-self: center;
   margin-top: 20px;
@@ -159,9 +168,11 @@ animation-duration: 0.9s;
 
 .submit_button:hover{
   background-color: #000000;
+  padding: 8px;
   color: aliceblue;
   margin-top: 25px;
 }
 .input__field__signUp{
   font-size: 20px;
 }
+

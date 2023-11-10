@@ -93,14 +93,14 @@ const onSubmit = async (formData) => {
 
      <p className='input__text'>Username or Email</p>
 
-    <input className='input__field'  type='text' placeholder='UserName' {...register("username")} />
+    <input className='input__field' type='text'  placeholder='Type your Username' {...register("username")} />
 
     <p>{errors.username?.message}</p>
 
    
 <p className='input__text'>Password</p>
 
-    <input className='input__field' type='password' placeholder='Password...' {...register("password")}  />
+    <input className='input__field' type='password' placeholder='Type your Password' {...register("password")}  />
 
     <p>{errors.password?.message}</p>
 

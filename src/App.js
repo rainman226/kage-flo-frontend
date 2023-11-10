@@ -8,7 +8,7 @@ import NewFormLogin from "./pages/Login/NewFormLogin";
 import AnimeDetail from "./pages/animes/AnimeDetail";
 import SignUp from "./pages/Login/SignUp";
 import NewFromSignUp from "./pages/Login/NewFromSignUp"
-import Profile from "./components/Profile"
+import NewProfile from "./components/NewProfile"
 
 import backgroundImage from "./pexels-photo-1038002.jpg"; // Import the image
 import AnimeDetailPage from "./pages/animes/AnimeDetailPage";
@@ -42,7 +42,7 @@ function App() {
               <Route path="/animes" element={<Animes />} />
               <Route path="/top/:id" element={<AnimeDetail />} />
               <Route path="/signup" element={<NewFromSignUp />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile" element={<NewProfile />} />
               <Route path="/addEntry" element={<AnimeEntry />} />
               <Route path="/newDetail/:id" element={<NewDetail />} />
               <Route path="/addNews" element={<AddNews />}/>

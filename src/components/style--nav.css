@@ -16,6 +16,23 @@ position: relative;
 
 } */
 
+@property --color-1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #5562c3;
+}
+@property --color-2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #5562c3;
+}
+@property --color-3 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #5562c3;
+}
+
+
 /* style--nav.css */
 .header {
   background-color: #000000;
@@ -136,11 +153,17 @@ justify-content: end;
   color: #fff;
   border: 2px solid #5562c3;
   border-radius: 8px;
-  background-color: #5562c3;
-  transition: all 0.3s ease-in-out;
+  background-image: 
+  linear-gradient( 90deg, var(--color-1), var(--color-2), var(--color-3));
+  transition: --color-1 0.8s,--color-2 0.8s,--color-3 0.8s, padding 0.3s, color 0.3s;
 }
 .Sign__Up:hover{
-  background: linear-gradient(45deg, #4ecdc4, #5562c3, #ff6b6b);
+  --color-1: #ff6b6b;
+  --color-2:#5562c3;
+  --color-3:#4ecdc4;
+  padding: 2px;
+  color: #000000;
+  font-weight: bolder;
   /* linear-gradient(, ); */
   /* border-color: #4ecdc4; */
   box-shadow: #fff;
@@ -153,6 +176,7 @@ justify-content: end;
   -webkit-background-clip: text; /* For webkit browsers to clip the text */
   background-clip: text;
   -webkit-text-fill-color: transparent; /* Hide text color to show gradient */
+  cursor: pointer
 }
 .Log__In{
   color: #FFF;
