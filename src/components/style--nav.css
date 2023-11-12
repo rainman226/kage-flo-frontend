@@ -16,6 +16,20 @@ position: relative;
 
 } */
 
+@keyframes fade-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+
+
 @property --color-1 {
   syntax: "<color>";
   inherits: true;
@@ -46,8 +60,12 @@ position: relative;
   width: 100%;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.096); /* Add a subtle shadow */
 }
+.fade-down{
+animation: fade-down 0.5s;
+}
 
 .container {
+  
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
@@ -149,9 +167,10 @@ justify-content: end;
 
 
 .Sign__Up{
+  
   display: block;
   color: #fff;
-  border: 2px solid #5562c3;
+  /* border: 2px solid #ffffff; */
   border-radius: 8px;
   background-image: 
   linear-gradient( 90deg, var(--color-1), var(--color-2), var(--color-3));
