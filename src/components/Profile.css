@@ -1,24 +1,83 @@
 /* CSS file for your component */
 
 /* Define CSS classes for each status */
-.WATCHING {
-   background: linear-gradient(135deg, #8cd192b9, #fbc2eb, #fbc2eb, #a6c1ee, #fbc2eb, #a18cd1); /* Green background for "WATCHING" */
+
+/* @keyframes borderAnimation {
+  0% {
+    box-shadow: 5px 5px 14px #ff6b6b;
+  }
+  33% {
+    box-shadow: 5px 0px 14px #5562c3;
+  }
+  66% {
+    box-shadow: 5px 0px 14px #4ecdc4;
+  }
+  100% {
+    box-shadow: 5px 0px 14px #ff6b6b;
+  }
+} */
+
+@keyframes slideInLeft {
+
+  from{transform: translatex(-300px);}
+  
+
+  to{transform: translatex(0)}
 }
 
-.DROPPED {
- background: linear-gradient(135deg, #ff3333, #754040, #ff3333); /* Red background for "COMPLETED" */
+.container-profile {
+   margin-top: 10px;
+   position: relative;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  height: 100vh;
+  width: 80%;
+ animation-name: slideInLeft;
+animation-duration: 0.9s;
 }
 
-.ONHOLD {
-  background: linear-gradient(135deg, #67b26f, #4ca2cd, #67b26f, #67b26f, #4ca2cd, #67b26f); /* Blue background for "ONHOLD" */
+.profile_info {
+   position: absolute;
+  height: 60%;
+  width: 97%;
+background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  overflow: hidden;
 }
-.COMPLETED {
-   background: linear-gradient(135deg, #ffc107, #ff9800, #ffc107);
-}
-.PTW{
-background: linear-gradient(to bottom, #0074e4, #00a0ff);
 
+.blurred-content {
+
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      filter: blur(12px);
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.171);
+      border-radius: 15px;
+      transition: all 0.2s ease-in-out;
 }
+.text-content {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  font-family: 'Antonio', sans-serif;
+  font-size: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #000; /* Adjust the color for better visibility */
+}
+.content_profile{
+   color: white;
+   flex:1
+}
+
+
+
+
 
 
 /* Add more classes for other statuses as needed */

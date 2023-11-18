@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import _debounce from 'lodash/debounce';
 import { useUser } from '../../UserContext';
 import backgroundImage from './wp11166273.webp'
-import logoImg from './tac_pac_mrk.png'
+import logoImg from './tac_pak_mrk.png'
 import './LogIn.css';
 
 import * as yup from 'yup';
